@@ -176,21 +176,23 @@ void http_check() {
 unsigned char copy_DATA_pins_to_register(void) {
   unsigned char retval = 0;
 
-  retval |= digitalRead(DATA_0_PIN);
+  retval |= digitalRead(DATA_7_PIN);
   retval = retval << 1;
-  retval |= digitalRead(DATA_1_PIN);
-  retval = retval << 1;
-  retval |= digitalRead(DATA_2_PIN);
-  retval = retval << 1;
-  retval |= digitalRead(DATA_3_PIN);
-  retval = retval << 1;
-  retval |= digitalRead(DATA_4_PIN);
-  retval = retval << 1;
-  retval |= digitalRead(DATA_5_PIN);
+  retval |= digitalRead(DATA_8_PIN);
   retval = retval << 1;
   retval |= digitalRead(DATA_6_PIN);
   retval = retval << 1;
-  retval |= digitalRead(DATA_7_PIN);
+  retval |= digitalRead(DATA_5_PIN);
+  retval = retval << 1;
+  retval |= digitalRead(DATA_4_PIN);
+  retval = retval << 1;
+  retval |= digitalRead(DATA_3_PIN);
+  retval = retval << 1;
+  retval |= digitalRead(DATA_2_PIN);
+  retval = retval << 1;
+  retval |= digitalRead(DATA_1_PIN);
+  retval = retval << 1;
+  retval |= digitalRead(DATA_0_PIN);
 
   return retval;
 }
