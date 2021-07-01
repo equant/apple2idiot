@@ -45,10 +45,10 @@ void setup() {
   Serial.begin(115200);
   //Serial.begin(9600);
   // Initialize the output variables as outputs
-  pinMode(ONBOARD_LED, OUTPUT);
+  //pinMode(ONBOARD_LED, OUTPUT);
   //pinMode(output27, OUTPUT);
   // Set outputs to LOW
-  digitalWrite(ONBOARD_LED, LOW);
+  //digitalWrite(ONBOARD_LED, LOW);
   //digitalWrite(output27, LOW);
   pinMode(DATA_0_PIN, INPUT);
   pinMode(DATA_1_PIN, INPUT);
@@ -198,12 +198,9 @@ unsigned char copy_DATA_pins_to_register(void) {
 void loop() {
     //http_check()
     if (digitalRead(DEVSEL_PIN) == LOW) {
-        digitalWrite(ONBOARD_LED,HIGH);
         data_register = copy_DATA_pins_to_register();
         Serial.print("[");
         Serial.print(data_register);
         Serial.println("]");
-    } else {
-        digitalWrite(ONBOARD_LED,HIGH);
     }
 }
