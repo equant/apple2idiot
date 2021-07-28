@@ -32,7 +32,10 @@ byte address_pins[] = {A0R, A1R, A2R, A3R};
 #define ADDRESS_BUS_SIZE 4
 
 //#define DEVSEL_PIN      35
-#define DEVSEL_PIN      5
+//#define DEVSEL_PIN      5
+#define CE_PIN          5
+#define CE_ENABLE   LOW
+#define CE_DISABLE  HIGH
 
 unsigned int data_byte = 0;
 
@@ -72,7 +75,8 @@ void setup() {
     pinMode(D5R, INPUT);
     pinMode(D6R, INPUT);
     pinMode(D7R, INPUT);
-    pinMode(DEVSEL_PIN, INPUT);
+    //pinMode(DEVSEL_PIN, INPUT);
+    pinMode(CE_PIN, OUTPUT); digitalWrite(CE_PIN, CE_DISABLE);
     Serial.begin(115200);
     Serial.println("");
     Serial.println("Starting...");
@@ -98,17 +102,19 @@ void set_address(int address) {
 unsigned long read_data() {
     unsigned long data_bus_read = 0;
     Serial.print("Reading data: ");
+    digitalWrite(CE_PIN, CE_ENABLE);
     for (byte i=0; i<DATA_BUS_SIZE; i++) {
         data_bus_read << 1;
         byte pin_state = digitalRead(data_pins[i]);
         Serial.print(pin_state);
         data_bus_read += pin_state;
     }
-    Serial.print(data_bus_read);
-    Serial.println();
+    //Serial.print(data_bus_read);
+    //Serial.println();
 
-    delay(10);
+    //delay(10);
     raw_register_read = REG_READ(GPIO_IN_REG);
+    digitalWrite(CE_PIN, CE_DISABLE);
     //raw_register1_read = REG_READ(GPIO_IN1_REG);
     Serial.print(raw_register_read, BIN);
     //Serial.print(" : ");
