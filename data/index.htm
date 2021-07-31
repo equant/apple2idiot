@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>a2idiot</title>
+   <link rel="stylesheet" href="a2i.css">
+
+   <style>
+      .example-grid .inner {
+         background-color: #eee;
+         text-align: center;
+      }
+   </style>
+<body>
+
+   <div class="container">
+
+      <main class="site-main">
+         <a class="site-title" href="#">apple2idiot</a>
+
+         <h2>Stuff</h2>
+
+         <p class="lead">Lead ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+         <p>
+            Lorem ipsum dolor <a href="#">sit amet adipisicing</a> elit, sed do eiusmod <em>italic</em> incididunt ut <strong>bold</strong> et dolore magna aliqua. Ut enim ad <mark>highlight <mark>minim</mark> veniam</mark>, <del>deletion</del> quis nostrud exercitation <ins>insertation</ins> ullamco laboris <u>underlined</u> nisi ut aliquip ex <small>small</small> ea commodo consequat <abbr title="Abbreviation">abbr</abbr>. Duis aute irure dolor in reprehenderit <kbd>⌘</kbd> + <kbd>Space</kbd>
+ in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+officia deserunt mollit anim id est laborum.<sup id="fnref:example"><a href="#fn:example" class="footnote">1</a></sup>
+         </p>
+
+
+         <hr>
+
+         <div class="highlight language-shell" data-lang="basic">
+             <samp>
+         10 P=49312
+         20 FOR N=P TO P+15
+         30 PRINT N,PEEK(N)
+         40 NEXT N
+             </samp>
+         </div>
+
+         <hr>
+
+         <h3>IDT7132 RAM</h3>
+
+         <div class="grid">
+            <div class="cell">
+               <table class="table-striped table-narrow">
+                  <thead>
+                     <tr>
+                        <th>ADDRESS</th>
+                        <th>DATA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      %RAM_TABLE%
+                  </tbody>
+               </table>
+            </div>
+
+
+         <h3>List Group</h3>
+
+         <div class="grid">
+            <div class="cell">
+               <ul class="list-group">
+                  <li>Cras justo odio</li>
+                  <li class="disabled">DISABLED</li>
+                  <li>Morbi leo risus <span class="tag tag-info">Tag</span></li>
+                  <li class="active">ACTIVE</li>
+                  <li>Porta ac consectetur</li>
+               </ul>
+            </div>
+            <div class="cell">
+               <div class="list-group list-striped">
+                  <a href="#">Striped</a>
+                  <a href="#">Morbi leo risus</a>
+                  <a href="#">Porta ac consectetur</a>
+                  <a href="#">Vestibulum at eros</a>
+                  <a class="active" href="#">ACTIVE LINK</a>
+               </div>
+            </div>
+            <div class="cell">
+               <div class="list-group">
+                  <button>Plain Buttons look like Links</button>
+                  <button class="active">Active Plain Button</button>
+                  <button class="btn btn-success">Success</button>
+                  <button class="btn btn-info btn-ghost">Ghost Info</button>
+                  <button class="btn btn-error btn-ghost">Ghost Error</button>
+               </div>
+            </div>
+         </div>
+
+
+         <h3>Progress bar</h3>
+
+         <div class="grid">
+            <div class="cell">
+               <p>
+                  </p><div class="progress-bar progress-bar-show-percent">
+                     <div style="width: 40%;" data-filled="Loaded 40%">50kb / 125kb</div>
+                  </div>
+               <p></p>
+
+               <p>
+                  </p><div class="progress-bar progress-success">
+                     <div style="width: 20%;">20%</div>
+                  </div>
+               <p></p>
+            </div>
+            <div class="cell">
+               with <code>.narrow</code>
+               <div class="m-b-1">
+                  <div class="progress-bar progress-error narrow">
+                     <div style="width: 30%;"></div>
+                  </div>
+               </div>
+
+               <div class="m-b-1">
+                  <div class="progress-bar progress-warning narrow">
+                     <div style="width: 60%;"></div>
+                  </div>
+               </div>
+
+               <div class="m-b-1">
+                  <div class="progress-bar progress-info narrow">
+                     <div style="width: 80%;"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         <h3>Cards</h3>
+
+         <p>
+            </p><div class="card">
+               <div class="card-header">TITLE</div>
+               <div class="card-body">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing 
+elit. Expedita, quas ex vero enim in doloribus officiis ullam vel nam 
+esse sapiente velit incidunt. Eaque quod et, aut maiores excepturi sint.
+               </div>
+            </div>
+         <p></p>
+
+         <div class="grid">
+            <div class="cell">
+               <div class="card card-success">
+                  <header class="card-header">in grid</header>
+                  <div class="card-body">
+                     Lorem ipsum dolor sit amet, consectetur adipisicing
+ elit. Expedita, quas ex vero enim in doloribus officiis ullam vel nam 
+esse sapiente velit incidunt. Eaque quod et, aut maiores excepturi sint.
+                  </div>
+               </div>
+            </div>
+            <div class="cell">
+               <div class="card card-warning">
+                  <header class="card-header">with list group</header>
+                  <div class="list-group">
+                     <span>Cras justo odio</span>
+                     <span>Dapibus ac facilisis in</span>
+                     <span>Morbi leo risus</span>
+                     <span>Vestibulum at eros</span>
+                     <span>Porta ac consectetur</span>
+                  </div>
+               </div>
+            </div>
+            <div class="cell">
+               <div class="card">
+                  <header class="card-header">with image</header>
+                  <img class="full-width" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABCAYAAAAb4BS0AAAAEElEQVR42mNUnPb5PwMUAAAajQKrlc3KqAAAAABJRU5ErkJggg==" alt="Image" height="109">
+                  <div class="card-body">and a second body</div>
+                  <pre class="card-body">echo "and a third"</pre>
+               </div>
+            </div>
+         </div>
+
+
+         <h3>Alerts</h3>
+
+         <div class="grid">
+            <div class="cell cell-4"><p class="alert">Default message</p></div>
+            <div class="cell cell-4"><p class="alert alert-info">Info message</p></div>
+            <div class="cell cell-4"><p class="alert alert-warning">Warning message</p></div>
+            <div class="cell cell-6"><p class="alert alert-success">Success message <button class="close">×</button></p></div>
+            <div class="cell cell-6"><p class="alert alert-error">Error message <button class="close">×</button></p></div>
+         </div>
+
+<!--
+         <h3>Images and Figures</h3>
+
+         <p>You can use <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABCAYAAAAb4BS0AAAAEElEQVR42mNUnPb5PwMUAAAajQKrlc3KqAAAAABJRU5ErkJggg==" alt="Image" width="24" height="12"> inline.</p>
+
+         <h4><code>.full-width</code></h4>
+
+         <img class="full-width" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABCAYAAAAb4BS0AAAAEElEQVR42mNUnPb5PwMUAAAajQKrlc3KqAAAAABJRU5ErkJggg==" alt="Image">
+
+         <h4>Figure with Caption</h4>
+
+         <figure>
+           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABCAYAAAAb4BS0AAAAEElEQVR42mNUnPb5PwMUAAAajQKrlc3KqAAAAABJRU5ErkJggg==" alt="Image">
+           <figcaption>Bildbeschreibung</figcaption>
+         </figure>
+
+-->
+         <h2>Details &amp; Summary</h2>
+
+         <details>
+           <summary>Hidden Text Sample</summary>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+Voluptatum molestiae et dicta, vero alias ab tempore obcaecati tempora 
+odit voluptates. Eum inventore omnis, ullam rerum tenetur optio quasi a 
+totam!</p>
+         </details>
+
+         <details>
+           <summary>Hidden Code Sample</summary>
+           <samp class="full-width">$ time sleep 3<br>        3.00 real         0.00 user         0.00 sys<br>$ exit</samp>
+         </details>
+
+         <h3>Toggleable Cards</h3>
+
+         <details class="card">
+            <summary class="card-header">Card Header</summary>
+            <div class="card-body">
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+ Expedita, quas ex vero enim in doloribus officiis ullam vel nam esse 
+sapiente velit incidunt. Eaque quod et, aut maiores excepturi sint.
+            </div>
+            <samp class="card-body full-width">$ time sleep 3<br>        3.00 real         0.00 user         0.00 sys<br>$ exit</samp>
+         </details>
+
+
+         <h2>Basic</h2>
+
+         <p>Use <code>.container</code> to centralize the main content.</p>
+
+         <p>Use <code>.site-header</code>, <code>.site-main</code> and <code>.site-footer</code> for the main sectioning elements.</p>
+
+         <p><code>.site-header</code> contains <code>.site-nav</code> which is not responsive by default but can be appended by <code>.responsive-nav</code> to collapse and show a hamburger icon on smaller screens. It can carry <code>.responsive-nav-animated</code> to add a sliding animation to the nav.</p>
+
+
+         <h3>Grid</h3>
+
+         <div class="example-grid">
+
+            <div class="m-b-1">
+               <div class="grid">
+                  <div class="cell"><div class="inner">space</div></div>
+                  <div class="cell"><div class="inner">can be</div></div>
+                  <div class="cell"><div class="inner">flexibly</div></div>
+                  <div class="cell"><div class="inner">distributed</div></div>
+               </div>
+            </div>
+
+            <div class="m-b-1">
+               <div class="grid">
+                  <div class="cell cell-4"><div class="inner">or</div></div>
+                  <div class="cell cell-4"><div class="inner">fixed</div></div>
+                  <div class="cell cell-4"><div class="inner">4</div></div>
+               </div>
+            </div>
+
+            <div class="m-b-1">
+               <div class="grid">
+                  <div class="cell cell-4"><div class="inner">4</div></div>
+                  <div class="cell cell-8"><div class="inner">8</div></div>
+               </div>
+            </div>
+
+            <div class="grid m-b-2">
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+               <div class="cell cell-1"><div class="inner">1</div></div>
+            </div>
+
+         </div>
+
+         <h3>Inline Grid</h3>
+
+         <div class="grid-inline m-b-2">
+            <input type="text" placeholder="use `cell` to let an element grow" class="cell">
+            <button type="button" class="btn btn-default">other elements</button>
+            <span>take the size they need</span>
+         </div>
+
+
+         <h3>Modifiers</h3>
+
+         <div class="grid">
+            <div class="cell">
+               <h4><code>.grid</code> modifiers</h4>
+               <ul>
+                  <li>To change spacing use <code>grid-narrow</code> or <code>grid-wide</code></li>
+               </ul>
+               <ul>
+                  <li>To align items with <strong>align-items</strong> use
+                     <ul>
+                        <li><code>grid-top</code>: To top</li>
+                        <li><code>grid-middle</code>: To middle</li>
+                        <li><code>grid-bottom</code>: To bottom</li>
+                        <li><code>grid-stretch</code>: Stretch items</li>
+                        <li><code>grid-baseline</code>: To baseline</li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul>
+                  <li>To layout contents with <strong>justify-content</strong> use
+                     <ul>
+                        <li><code>grid-left</code>: To left</li>
+                        <li><code>grid-center</code>: To center</li>
+                        <li><code>grid-right</code>: To right</li>
+                        <li><code>grid-between</code>: Add spaces between items</li>
+                        <li><code>grid-around</code>: Add spaces around items</li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+            <div class="cell">
+               <h4><code>.cell</code> modifiers</h4>
+               <ul>
+                  <li><code>grid-top</code>: To top</li>
+                  <li><code>grid-middle</code>: To middle</li>
+                  <li><code>grid-bottom</code>: To bottom</li>
+               </ul>
+               <ul>
+                  <li><code>cell-1</code>: Set item width to 8.3% of parent</li>
+                  <li><code>cell-2</code>: Set item width to 16.7% of parent</li>
+                  <li><code>cell-3</code>: Set item width to 25% of parent</li>
+                  <li><code>cell-4</code>: Set item width to 33% of parent</li>
+                  <li><code>cell-5</code>: Set item width to 41.7% of parent</li>
+                  <li><code>cell-6</code>: Set item width to 50% of parent</li>
+                  <li><code>cell-7</code>: Set item width to 58.3% of parent</li>
+                  <li><code>cell-8</code>: Set item width to 66.7% of parent</li>
+                  <li><code>cell-9</code>: Set item width to 75% of parent</li>
+                  <li><code>cell-10</code>: Set item width to 83.3% of parent</li>
+                  <li><code>cell-11</code>: Set item width to 91.7% of parent</li>
+                  <li><code>cell-12</code>: Set item width to 100% of parent</li>
+               </ul>
+            </div>
+         </div>
+
+         <div class="footnotes dashed-top">
+            <ol>
+               <li id="fn:example">
+                  <p>Example footnote text. <a href="#fnref:example" class="reversefootnote">↩</a></p>
+               </li>
+            </ol>
+         </div>
+
+      </main>
+
+      <footer class="site-footer dashed-top">
+         Footer text – <a href="#" title="Link">Link</a> <a href="#" title="Link">Link</a>
+      </footer>
+
+   </div>
+
+   <!--
+   <a class="github-corner" href="https://github.com/tawian/tawian-frontend" aria-label="View source on Github">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#212121; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+         <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;"></path>
+         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor"></path>
+      </svg>
+   </a>
+   -->
+
+
+
+
+</body></html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>a2idiot</title>
+   <link rel="stylesheet" href="a2i.css">
+
+   <style>
+      .example-grid .inner {
+         background-color: #eee;
+         text-align: center;
+      }
+   </style>
+<body>
+
+   <div class="container">
+
+      <main class="site-main">
+         <a class="site-title" href="#">apple2idiot</a>
+
+         <h2>IDT7132 RAM</h2>
+
+         <h4>Inline Form</h4>
+
+         <form action="/write_byte" method="GET">
+            <label>Address: <input name="address" placeholder="0"></label>
+            <label>Data: <input name="data" placeholder="255"></label>
+            <label> Option:
+               <select name="option">
+                  <option selected="selected" value="0">Notify Apple II</option>
+                  <option value="1">Don't</option>
+               </select>
+            </label>
+            <label><input type="submit" value="Submit"></label>
+         </form>
+
+         <h4>Memory Map</h4>
+
+         <div class="grid">
+            <div class="cell">
+               <table class="table-striped table-narrow">
+                  <thead>
+                     <tr>
+                        <th>ADDRESS</th>
+                        <th>DATA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      %RAM_TABLE%
+                  </tbody>
+               </table>
+            </div>
+
+
+</body></html>

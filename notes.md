@@ -15,3 +15,14 @@
 		* See: https://esp32.com/viewtopic.php?t=422
 		* See: https://docs.espressif.com/projects/esp ... rupts.html
 	* components/esp_system/port/soc/esp32/dport_panic_highint_hdl.S
+
+## Python binar/hex/dec manipulation
+
+```
+In [11]: format(10, '016b')
+Out[11]: '0000000000001010'
+
+bin(10)
+```
+
+
