@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name kicad-library)(type KiCad)(uri /home/equant/projects/apple_ii/other_peoples_stuff/rharke/kicad-library/kicad-library.pretty)(options "")(descr ""))
+  (lib (name manual)(type KiCad)(uri ${KIPRJMOD}/manual.pretty)(options "")(descr ""))
+)

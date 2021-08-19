@@ -7,6 +7,7 @@ A general purpose ESP32 IOT board for the Apple IIe
 
 + https://github.com/me-no-dev/ESPAsyncWebServer
 + https://github.com/me-no-dev/AsyncTCP
++ ArduinoJSON by Benoit Blanchon
 
 Instructions for installing Arduino libraries: https://www.arduino.cc/en/Guide/Libraries
 

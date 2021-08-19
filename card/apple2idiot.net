@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/equant/projects/apple_ii/apple2idiot/card/apple2idiot.sch)
-    (date "Wed 28 Jul 2021 03:35:35 PM MST")
+    (date "Thu 05 Aug 2021 04:11:08 PM MST")
     (tool "Eeschema 5.1.10-88a1d61d58~88~ubuntu18.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -31,7 +31,7 @@
       (tstamp 6103513B))
     (comp (ref U2)
       (value ESP32-DEVKITC-32D)
-      (footprint MODULE_ESP32-DEVKITC-32D)
+      (footprint ESPDEVKIT:MODULE_ESP32-DEVKITC-32D)
       (fields
         (field (name MANUFACTURER) "Espressif Systems")
         (field (name PARTREV) 4))

@@ -26,3 +26,32 @@ bin(10)
 ```
 
 
+## Jumper and Breakout pins
+
+* Input (to ESP32) only
+    ~IOSEL  (from Apple2)
+    ~BSYL   (from Apple2 side of IDT7132)
+    ~BSYR   (from ESP32 side of IDT7132)
+
+
++ Apple II Pins to header
+    + IOSEL
+    + DEVSEL
+    + IOSTROBE
++ IDT7132S Pins to header
+    + BSYL
+    + BSYR
++ ESP32 Pins to header
+    + GPIO 0
+    + GPIO 1    (TX)
+    + GPIO 2
+    + GPIO 3    (RX)
+    + GPIO 4
+    + GPIO 26
+    + GPIO 27
+    + GPIO 32
+    + GPIO 33
+    + GPIO 34   (input only) No pullup, needs resistor?
+    + GPIO 35   (input only) No pullup, needs resistor?
+    + SENSOR_VP (input only) No pullup, needs resistor?
+    + SENSOR_VN (input only) No pullup, needs resistor?

@@ -331,8 +331,6 @@ Wire Wire Line
 Text GLabel 6150 1450 2    50   Input ~ 0
 GND
 Wire Wire Line
-	4250 1350 4100 1350
-Wire Wire Line
 	4250 2450 4150 2450
 Text GLabel 4150 2450 0    50   Input ~ 0
 GND
@@ -388,17 +386,6 @@ Wire Wire Line
 	3900 1750 4250 1750
 Wire Wire Line
 	3900 1650 4250 1650
-$Comp
-L Memory_RAM:IDT7132 U1
-U 1 1 6102DC5C
-P 5150 2350
-F 0 "U1" H 4600 3800 50  0000 C CNN
-F 1 "IDT7132" H 5600 900 50  0000 C CNN
-F 2 "Package_DIP:DIP-48_W15.24mm_Socket_LongPads" H 5150 2350 50  0001 C CNN
-F 3 "" H 5150 2350 50  0001 C CNN
-	1    5150 2350
-	1    0    0    -1  
-$EndComp
 Entry Wire Line
 	3800 1550 3900 1650
 Entry Wire Line
@@ -514,29 +501,17 @@ Wire Wire Line
 Wire Wire Line
 	6250 3950 10150 3950
 Wire Wire Line
-	10150 3950 10150 2650
-Wire Wire Line
-	10150 2650 9800 2650
-Wire Wire Line
 	6050 3050 6350 3050
 Wire Wire Line
 	6350 3050 6350 4050
 Wire Wire Line
 	6350 4050 10250 4050
 Wire Wire Line
-	10250 4050 10250 2550
-Wire Wire Line
-	10250 2550 9800 2550
-Wire Wire Line
 	6050 2950 6450 2950
 Wire Wire Line
 	6450 2950 6450 4150
 Wire Wire Line
 	6450 4150 10350 4150
-Wire Wire Line
-	10350 4150 10350 2350
-Wire Wire Line
-	10350 2350 9800 2350
 Text GLabel 9950 2450 2    50   Input ~ 0
 GND
 Wire Wire Line
@@ -548,65 +523,9 @@ Wire Wire Line
 Wire Wire Line
 	6550 4250 10450 4250
 Wire Wire Line
-	10450 4250 10450 2050
-Wire Wire Line
-	10450 2050 9800 2050
-Wire Wire Line
-	6050 1650 8050 1650
-Wire Wire Line
-	8050 1650 8050 1450
-Wire Wire Line
-	8050 1450 10250 1450
-Wire Wire Line
-	10250 1450 10250 1950
-Wire Wire Line
-	10250 1950 9800 1950
-Wire Wire Line
-	6050 1750 7050 1750
-Wire Wire Line
-	7050 1750 7050 2650
-Wire Wire Line
-	7050 2650 8200 2650
-Wire Wire Line
-	6050 1850 6950 1850
-Wire Wire Line
-	6950 1850 6950 2750
-Wire Wire Line
-	6950 2750 8200 2750
-Wire Wire Line
-	6050 1950 6850 1950
-Wire Wire Line
-	6850 1950 6850 2850
-Wire Wire Line
-	6850 2850 8200 2850
-Wire Wire Line
-	4100 850  7300 850 
-Wire Wire Line
-	7300 850  7300 2350
-Wire Wire Line
-	7300 2350 8200 2350
-Wire Wire Line
-	4100 850  4100 1350
-Wire Wire Line
 	1300 750  7400 750 
 Wire Wire Line
-	7400 750  7400 2250
-Wire Wire Line
-	7400 2250 8200 2250
-Wire Wire Line
 	1300 750  1300 2100
-Wire Wire Line
-	6050 2050 7150 2050
-Wire Wire Line
-	6050 2150 6750 2150
-Wire Wire Line
-	6750 2150 6750 2550
-Wire Wire Line
-	6750 2550 8200 2550
-Wire Wire Line
-	7150 2050 7150 2450
-Wire Wire Line
-	7150 2450 8200 2450
 Wire Wire Line
 	6050 1250 10550 1250
 Wire Wire Line
@@ -625,6 +544,148 @@ Wire Wire Line
 	1150 4700 1300 4700
 Wire Wire Line
 	1300 4700 1300 4500
+Connection ~ 1300 4500
+Wire Wire Line
+	1300 4500 1800 4500
+Wire Wire Line
+	10150 3950 10150 2950
+Wire Wire Line
+	10150 2950 9800 2950
+Wire Wire Line
+	10250 4050 10250 2850
+Wire Wire Line
+	10250 2850 9800 2850
+Wire Wire Line
+	10350 4150 10350 2650
+Wire Wire Line
+	10350 2650 9800 2650
+Wire Wire Line
+	10450 4250 10450 2550
+Wire Wire Line
+	10450 2550 9800 2550
+Wire Wire Line
+	6050 1350 7550 1350
+Wire Wire Line
+	7550 1350 7550 2050
+Wire Wire Line
+	7550 2050 8200 2050
+Wire Wire Line
+	6050 1650 7750 1650
+$Comp
+L Jumper:Jumper_3_Bridged12 JP?
+U 1 1 61177187
+P 7950 950
+F 0 "JP?" H 7950 1154 50  0000 C CNN
+F 1 "Jumper_3_Bridged12" H 7950 1063 50  0000 C CNN
+F 2 "" H 7950 950 50  0001 C CNN
+F 3 "~" H 7950 950 50  0001 C CNN
+	1    7950 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Memory_RAM:IDT7132 U1
+U 1 1 6102DC5C
+P 5150 2350
+F 0 "U1" H 4600 3800 50  0000 C CNN
+F 1 "IDT7132" H 5600 900 50  0000 C CNN
+F 2 "Package_DIP:DIP-48_W15.24mm_Socket_LongPads" H 5150 2350 50  0001 C CNN
+F 3 "" H 5150 2350 50  0001 C CNN
+	1    5150 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 750  7400 950 
+Wire Wire Line
+	7400 950  7700 950 
+Wire Wire Line
+	7950 1100 7950 2250
+Wire Wire Line
+	7950 2250 8200 2250
+$Comp
+L Jumper:Jumper_3_Bridged12 JP?
+U 1 1 61190E6D
+P 4450 5250
+F 0 "JP?" H 4450 5454 50  0000 C CNN
+F 1 "Jumper_3_Bridged12" H 4450 5363 50  0000 C CNN
+F 2 "" H 4450 5250 50  0001 C CNN
+F 3 "~" H 4450 5250 50  0001 C CNN
+	1    4450 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 1350 3700 1350
+Wire Wire Line
+	3700 1350 3700 5250
+Wire Wire Line
+	3700 5250 4200 5250
+$Comp
+L Jumper:Jumper_3_Bridged12 JP?
+U 1 1 611B120A
+P 6200 5250
+F 0 "JP?" H 6200 5361 50  0000 C CNN
+F 1 "Jumper_3_Bridged12" H 6200 5452 50  0000 C CNN
+F 2 "" H 6200 5250 50  0001 C CNN
+F 3 "~" H 6200 5250 50  0001 C CNN
+	1    6200 5250
+	-1   0    0    1   
+$EndComp
+$Comp
+L Jumper:Jumper_3_Bridged12 JP?
+U 1 1 61193046
+P 5350 5250
+F 0 "JP?" H 5350 5454 50  0000 C CNN
+F 1 "Jumper_3_Bridged12" H 5350 5363 50  0000 C CNN
+F 2 "" H 5350 5250 50  0001 C CNN
+F 3 "~" H 5350 5250 50  0001 C CNN
+	1    5350 5250
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7750 1350 10500 1350
+Wire Wire Line
+	10500 1350 10500 2350
+Wire Wire Line
+	10500 2350 9800 2350
+Wire Wire Line
+	7750 1350 7750 1650
+Wire Wire Line
+	6050 1750 7850 1750
+Wire Wire Line
+	7850 1750 7850 1450
+Wire Wire Line
+	7850 1450 10400 1450
+Wire Wire Line
+	10400 1450 10400 2050
+Wire Wire Line
+	9800 2050 10400 2050
+Wire Wire Line
+	6050 1850 8050 1850
+Wire Wire Line
+	8050 1850 8050 1550
+Wire Wire Line
+	8050 1550 10300 1550
+Wire Wire Line
+	10300 1550 10300 1950
+Wire Wire Line
+	9800 1950 10300 1950
+Wire Wire Line
+	6050 1950 7350 1950
+Wire Wire Line
+	7350 1950 7350 2650
+Wire Wire Line
+	7350 2650 8200 2650
+Wire Wire Line
+	6050 2050 7250 2050
+Wire Wire Line
+	7250 2050 7250 2750
+Wire Wire Line
+	7250 2750 8200 2750
+Wire Wire Line
+	6050 2150 7100 2150
+Wire Wire Line
+	7100 2150 7100 2850
+Wire Wire Line
+	7100 2850 8200 2850
 Wire Bus Line
 	3150 2300 3150 3000
 Wire Bus Line
@@ -633,7 +694,4 @@ Wire Bus Line
 	3950 2750 3950 3450
 Wire Bus Line
 	900  1550 900  2800
-Connection ~ 1300 4500
-Wire Wire Line
-	1300 4500 1800 4500
 $EndSCHEMATC
