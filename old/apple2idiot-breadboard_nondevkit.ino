@@ -20,33 +20,25 @@ blah blah blah
 #define D1R 13
 #define D2R 14
 #define D3R 15
-#define D4R 16
-#define D5R 17
-#define D6R 18
-#define D7R 19
+#define D4R 18
+#define D5R 19
+#define D6R 21
+#define D7R 22
 byte data_pins[] = {D0R, D1R, D2R, D3R, D4R, D5R, D6R, D7R};
 #define DATA_BUS_SIZE 8
 
 /* Address Bus */
-#define A0R 21
-#define A1R 22
-#define A2R 23
-#define A3R 25
-#define A4R 26
-#define A5R 27
-#define A6R 32
-#define A7R 33
-byte address_pins[] = {A0R, A1R, A2R, A3R, A4R, A5R, A6R, A7R};
-/* #define ADDRESS_BUS_SIZE 4 */
-#define ADDRESS_BUS_SIZE 8
+#define A0R 23
+#define A1R 25
+#define A2R 26
+#define A3R 27
+byte address_pins[] = {A0R, A1R, A2R, A3R};
+#define ADDRESS_BUS_SIZE 4
 
 /* IDT7132S dual port ram chip enable */
 #define RW_PIN      5
 #define RW_WRITE    LOW
 #define RW_READ     HIGH
-
-#define INPUT_35 35
-#define INPUT_34 34
 
 unsigned int data_byte = 0;
                                             //    fisrt bit is a flag for if the data is from Apple or from ESP32.
@@ -79,9 +71,7 @@ volatile uint16_t raw_register1_read;
 /**********************/
 
 // Replace with your network credentials
-//const char* wifi_ssid = "GSO";
-//const char* wifi_password = "xerxes27";
-const char* wifi_ssid = "Pixel_8985";
+const char* wifi_ssid = "GSO";
 const char* wifi_password = "xerxes27";
 AsyncWebServer web_server(80);
 //WebServer web_server(80);
@@ -100,8 +90,7 @@ const String weather_url = "http://api.openweathermap.org/data/2.5/weather?";
 const long readLoopInterval = 10000; // millis
 unsigned long lastReadLoopTime = 0;
 //byte ram[ADDRESS_BUS_SIZE];
-//byte ram[256];
-byte ram[256];
+byte ram[16];
 volatile byte ram_busy=0;
 //const unsigned int RAM_BUSY=666;
 #define RAM_BUSY 666
@@ -132,10 +121,9 @@ boolean set_address(int address) {
     //delay(20);
     Serial.print("    A:");        
     for (byte i=0; i<ADDRESS_BUS_SIZE; i++) {
-    //for (byte i=ADDRESS_BUS_SIZE; i>0; i--) {
         byte state = bitRead(address, i);
-        digitalWrite(address_pins[i], !state);
-        Serial.print(!state);
+        digitalWrite(address_pins[i], state);
+        Serial.print(state);
     }
     Serial.println();
     return true;
@@ -196,8 +184,7 @@ boolean write_data(byte address, byte byte_to_write) {
 
 void store_ip_to_ram(byte offset) {
     IPAddress ip_address = WiFi.localIP();
-    //for (int i=0; i < ADDRESS_BUS_SIZE; i++) {
-    for (int i=0; i < 4; i++) {
+    for (int i=0; i < ADDRESS_BUS_SIZE; i++) {
         write_data(i+offset, ip_address[i]);
     }
 }
@@ -271,8 +258,7 @@ void fetch_weather(char* city_name) {
 }
 
 void read_ram() {
-    //for (int i=0; i < 16; i++) {
-    for (int i=0; i < 256; i++) {
+    for (int i=0; i < 16; i++) {
         unsigned int foo = read_data(i);
         ram[i] = foo;
     }
@@ -283,8 +269,7 @@ String html_template_processor(const String& var) {
     String return_string = "";
     if (var == "RAM_TABLE") {
         read_ram();
-        //for (int i=0; i < 16; i++) {
-        for (int i=0; i < 256; i++) {
+        for (int i=0; i < 16; i++) {
             return_string += "<tr><td>"+String(i)+"</td><td>" + String(ram[i]) + "</td></tr>\n";
         }
         return return_string;
@@ -352,10 +337,6 @@ void setup() {
     pinMode(A1R, OUTPUT); digitalWrite(A1R, LOW);
     pinMode(A2R, OUTPUT); digitalWrite(A2R, LOW);
     pinMode(A3R, OUTPUT); digitalWrite(A3R, LOW);
-    pinMode(A4R, OUTPUT); digitalWrite(A4R, LOW);
-    pinMode(A5R, OUTPUT); digitalWrite(A5R, LOW);
-    pinMode(A6R, OUTPUT); digitalWrite(A6R, LOW);
-    pinMode(A7R, OUTPUT); digitalWrite(A7R, LOW);
     pinMode(D0R, INPUT);
     pinMode(D1R, INPUT);
     pinMode(D2R, INPUT);
@@ -365,9 +346,6 @@ void setup() {
     pinMode(D6R, INPUT);
     pinMode(D7R, INPUT);
     pinMode(RW_PIN, OUTPUT); digitalWrite(RW_PIN, RW_READ);
-
-    pinMode(INPUT_34, INPUT);
-    pinMode(INPUT_35, INPUT);
 
     delay(10);
     //wifi_scan();

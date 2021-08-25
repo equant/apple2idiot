@@ -1,3 +1,11 @@
+## Needed changes to board
+
+DONE: Add a GND and +5V breakout.
+Fix DEVSEL address in silkscreen docs.
+DONE: Unconnect addresses above A7.
+DONE: Add diode to +5V.
+
+
 ## Ordered:
 
 * 5PCS IDT7132SA100P IDT7132SA DIP-48 HIGH-SPEED 2K x 8 DUAL-PORT STATIC RAM 

@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name kicad-library)(type Legacy)(uri /home/equant/projects/apple_ii/other_peoples_stuff/rharke/kicad-library/kicad-library.lib)(options "")(descr ""))
+  (lib (name apple2idiot_new-rescue)(type Legacy)(uri ${KIPRJMOD}/apple2idiot_new-rescue.lib)(options "")(descr ""))
 )
