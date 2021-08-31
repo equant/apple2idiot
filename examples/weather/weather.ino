@@ -6,9 +6,6 @@ blah blah blah
 
 // Load Wi-Fi library
 #include <WiFi.h>
-#include <ESPAsyncWebServer.h>
-#include <SPIFFS.h>
-#include <HTTPClient.h>
 #include <ArduinoJson.h>
 
 /**************/
@@ -38,7 +35,6 @@ byte data_pins[] = {D7R, D6R, D5R, D4R, D3R, D2R, D1R, D0R};  // That's the way 
 #define A6R 32
 #define A7R 33
 byte address_pins[] = {A0R, A1R, A2R, A3R, A4R, A5R, A6R, A7R};
-/* #define ADDRESS_BUS_SIZE 4 */
 #define ADDRESS_BUS_SIZE 8
 
 /* IDT7132S dual port ram chip enable */

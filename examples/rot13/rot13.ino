@@ -1,5 +1,8 @@
 /*
-blah blah blah
+
+Use this program with the Apple2idIOT card and the basic programs RRAM, WRAM and CMDROT to read/write and rot13
+a single string contained within the dual port ram on the card.
+
 */
 
 #define DEBUG true
@@ -34,7 +37,7 @@ byte data_pins[] = {D7R, D6R, D5R, D4R, D3R, D2R, D1R, D0R};
 #define A7R 33
 byte address_pins[] = {A0R, A1R, A2R, A3R, A4R, A5R, A6R, A7R};
 #define ADDRESS_BUS_SIZE 8
-#define ESP_COMMAND_ADDRESS 0		  // This is a hack see function unbusy_ram() for details
+#define ESP_COMMAND_ADDRESS 0
 #define APPLE_COMMAND_ADDRESS 1
 #define SHARED_RAM_START_ADDRESS 2
 #define RAM_BUSY 666
@@ -58,7 +61,7 @@ byte address_pins[] = {A0R, A1R, A2R, A3R, A4R, A5R, A6R, A7R};
 /* Misc. */
 /*********/
 
-const long readLoopInterval = 1000; // millis
+const long readLoopInterval = 100; // millis
 unsigned long lastReadLoopTime = 0;
 byte ram[256];
 volatile byte ram_busy=0;
@@ -80,29 +83,21 @@ boolean set_address(int address) {
         return false;
     }
     ram_busy = true;
-    //Serial.print("    A:");        
     for (byte i=0; i<ADDRESS_BUS_SIZE; i++) {
         byte state = bitRead(address, i);
         digitalWrite(address_pins[i], state);
-        //Serial.print(state);
     }
-    //Serial.println();
     return true;
 }
 
 byte read_data(int address) {
-    //Serial.print("READ: ");
-    //Serial.println(address);        
     byte data_bus_read = 0;
     if (set_address(address)) {
         digitalWrite(RW_PIN, RW_READ);  // Should already be set to RW_READ, but just in case.
-        //Serial.print("    D:");        
         for (byte i=0; i<DATA_BUS_SIZE; i++) {
             byte pin_state = digitalRead(data_pins[i]);
             data_bus_read += pin_state * pow(2,i);
-            //Serial.print(pin_state);        
         }
-        //Serial.println();
         ram_busy = false;
 	unbusy_ram();
         return data_bus_read; 
@@ -111,9 +106,6 @@ byte read_data(int address) {
     }
 }
 
-//signed int convert_to_signed_byte(byte byte_to_convert) {
-    //if (abs(requested_byte_to_write) > 127) {
-    //if (requested_byte_to_write < 0) {
 
 boolean write_data(byte address, byte byte_to_write) {
     Serial.print("WRITE: ");
@@ -186,25 +178,6 @@ void read_ram(int size_to_read) {
 }
 
 
-void prefill_ram_with_pattern_data() {
-    write_data(15, 0);      // notify Apple IIe we are done processing command byte
-    write_data(14, 123);      // notify Apple IIe we are done processing command byte
-    write_data(13, 1);      // notify Apple IIe we are done processing command byte
-    write_data(12, 123);      // notify Apple IIe we are done processing command byte
-    write_data(11, 2);      // notify Apple IIe we are done processing command byte
-    write_data(10, 123);      // notify Apple IIe we are done processing command byte
-    write_data(9, 3);      // notify Apple IIe we are done processing command byte
-    write_data(8, 123);      // notify Apple IIe we are done processing command byte
-    write_data(7, 4);      // notify Apple IIe we are done processing command byte
-    write_data(6, 123);      // notify Apple IIe we are done processing command byte
-    write_data(5, 5);      // notify Apple IIe we are done processing command byte
-    write_data(4, 123);      // notify Apple IIe we are done processing command byte
-    write_data(3, 6);      // notify Apple IIe we are done processing command byte
-    write_data(2, 123);      // notify Apple IIe we are done processing command byte
-    write_data(1, 7);      // notify Apple IIe we are done processing command byte
-    write_data(0, 123);      // notify Apple IIe we are done processing command byte
-}
-
 /*################################################
 #                     Setup                      #
 ################################################*/
@@ -234,16 +207,10 @@ void setup() {
     pinMode(INPUT_34, INPUT);
     pinMode(INPUT_35, INPUT);
 
-    //prefill_ram_with_pattern_data();
-
-    Serial.println("-----------------------------------------");
-    Serial.println("Sending string...");
-
     //delay(10); 
 
     send_string_to_apple("Starting Up!", SHARED_RAM_START_ADDRESS);
     Serial.println("-----------------------------------------");
-    Serial.println("String sent.");
     //read_ram(16);
 }
 
@@ -277,6 +244,7 @@ void loop() {
         else if (command_byte != lastAppleCommand){
             switch(command_byte) {
                 case COMMAND_GENERIC:
+                    write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
                     String read_string = read_string_from_ram(SHARED_RAM_START_ADDRESS);
                     send_string_to_apple(rot13(read_string), SHARED_RAM_START_ADDRESS);
                     write_data(APPLE_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
@@ -285,7 +253,6 @@ void loop() {
             lastAppleCommand = command_byte;
             Serial.print("Command Read: ");
             Serial.println(command_byte);
-            write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
             write_data(ESP_COMMAND_ADDRESS, EOT);      // notify Apple IIe we are done processing command byte
         }
         lastReadLoopTime = millis();

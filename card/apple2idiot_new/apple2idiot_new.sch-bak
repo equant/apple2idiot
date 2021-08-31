@@ -689,7 +689,7 @@ U 1 1 6174221E
 P 5250 8150
 F 0 "C1" H 5365 8196 50  0000 L CNN
 F 1 "C" H 5365 8105 50  0000 L CNN
-F 2 "" H 5288 8000 50  0001 C CNN
+F 2 "Capacitor_THT:C_Disc_D10.5mm_W5.0mm_P10.00mm" H 5288 8000 50  0001 C CNN
 F 3 "~" H 5250 8150 50  0001 C CNN
 	1    5250 8150
 	1    0    0    -1  
@@ -752,7 +752,7 @@ U 1 1 618300D7
 P 5100 1650
 F 0 "J3" V 5064 1362 50  0000 R CNN
 F 1 "Conn_01x04" V 4973 1362 50  0000 R CNN
-F 2 "" H 5100 1650 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 5100 1650 50  0001 C CNN
 F 3 "~" H 5100 1650 50  0001 C CNN
 	1    5100 1650
 	0    -1   -1   0   
@@ -829,6 +829,42 @@ NoConn ~ 13800 6350
 NoConn ~ 13800 6450
 NoConn ~ 12200 4650
 NoConn ~ 12200 4750
+Text Label 12050 5550 0    50   ~ 0
+IO26
+Text Label 12050 5650 0    50   ~ 0
+IO27
+Text Label 12050 5350 0    50   ~ 0
+IO33
+Text Label 12050 5450 0    50   ~ 0
+IO25
+Text Label 12050 5050 0    50   ~ 0
+IO34
+Text Label 12050 5150 0    50   ~ 0
+IO35
+Text Label 12050 5250 0    50   ~ 0
+IO32
+Text Label 12100 4850 0    50   ~ 0
+SENVP
+Text Label 12100 4950 0    50   ~ 0
+SENVN
+Text Label 13800 4950 0    50   ~ 0
+TX
+Text Label 13800 5050 0    50   ~ 0
+RX
+Text Label 13850 5850 0    50   ~ 0
+IO4
+Text Label 13850 5950 0    50   ~ 0
+IO0
+Text Label 13850 6050 0    50   ~ 0
+IO2
+Text Label 9400 5650 0    50   ~ 0
+AR4
+Text Label 9400 5750 0    50   ~ 0
+AR5
+Text Label 9400 5850 0    50   ~ 0
+AR6
+Text Label 9400 5950 0    50   ~ 0
+AR7
 Wire Bus Line
 	9700 5350 9700 5650
 Wire Bus Line
@@ -847,4 +883,16 @@ Wire Bus Line
 	7300 4950 7300 6150
 Wire Bus Line
 	2400 4950 2400 6400
+Text Label 7500 4950 0    50   ~ 0
+BSYL
+Text Label 9350 4950 0    50   ~ 0
+BSYR
+Text Label 2250 7200 0    50   ~ 0
+IOSEL
+Text Label 2250 7400 0    50   ~ 0
+DEVSEL
+Text Label 2250 7500 0    50   ~ 0
+RW
+Text Label 3450 3800 0    50   ~ 0
+CEL
 $EndSCHEMATC

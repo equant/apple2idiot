@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 "Nathanial Hendler"
 $EndDescr
 $Comp
-L kicad-library:AppleIIBus J1
+L apple2idiot_new-rescue:AppleIIBus-kicad-library J1
 U 1 1 61291E51
 P 3400 6800
 F 0 "J1" H 3950 8300 50  0000 C CNN
@@ -25,7 +25,7 @@ F 3 "" H 3400 6800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L ESP32-DEV_KIT:ESP32-DEVKITC-32D U2
+L apple2idiot_new-rescue:ESP32-DEVKITC-32D-ESP32-DEV_KIT U2
 U 1 1 612B5485
 P 13000 5550
 F 0 "U2" H 13500 6600 50  0000 C CNN
@@ -865,6 +865,18 @@ Text Label 9400 5850 0    50   ~ 0
 AR6
 Text Label 9400 5950 0    50   ~ 0
 AR7
+Text Label 7500 4950 0    50   ~ 0
+BSYL
+Text Label 9350 4950 0    50   ~ 0
+BSYR
+Text Label 2250 7200 0    50   ~ 0
+IOSEL
+Text Label 2250 7400 0    50   ~ 0
+DEVSEL
+Text Label 2250 7500 0    50   ~ 0
+RW
+Text Label 3450 3800 0    50   ~ 0
+CEL
 Wire Bus Line
 	9700 5350 9700 5650
 Wire Bus Line
@@ -883,16 +895,4 @@ Wire Bus Line
 	7300 4950 7300 6150
 Wire Bus Line
 	2400 4950 2400 6400
-Text Label 7500 4950 0    50   ~ 0
-BSYL
-Text Label 9350 4950 0    50   ~ 0
-BSYR
-Text Label 2250 7200 0    50   ~ 0
-IOSEL
-Text Label 2250 7400 0    50   ~ 0
-DEVSEL
-Text Label 2250 7500 0    50   ~ 0
-RW
-Text Label 3450 3800 0    50   ~ 0
-CEL
 $EndSCHEMATC
