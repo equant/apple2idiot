@@ -50,7 +50,6 @@ void scan_wifi() {
         Serial.println(" networks found");
         a2i.write_data(n, address_counter);
         for (int i = 0; i < n; ++i) {
-            // Print SSID and RSSI for each network found
             Serial.print(i + 1);
             Serial.print(": ");
             Serial.println(WiFi.SSID(i));
@@ -64,7 +63,6 @@ void scan_wifi() {
 
 void store_ip_to_ram(byte offset) {
     IPAddress ip_address = WiFi.localIP();
-    //for (int i=0; i < ADDRESS_BUS_SIZE; i++) {
     for (int i=0; i < 4; i++) {
         a2i.write_data(i+offset, ip_address[i]);
     }
@@ -90,12 +88,19 @@ void loop() {
             switch(command_byte) {
                 case COMMAND_CONNECT:
                     a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
-                    int access_point_n = a2i.read_data(SHARED_RAM_START_ADDRESS);
+                    int access_point_n = a2i.read_data(SHARED_RAM_START_ADDRESS) - 1;
                     String ssid_as_String = WiFi.SSID(access_point_n);
                     String password_as_String = a2i.read_string_from_ram(SHARED_RAM_START_ADDRESS+1);
                     wifi_password = password_as_String.c_str();
                     wifi_ssid = ssid_as_String.c_str();
-                    WiFi.begin("GSO", "xerxes27");
+                    if (wifi_password == "xerxes27") {
+                        Serial.println("PASSWORDS ARE NOT THE SAME!");
+                    } else {
+                        Serial.println("Passwords are the same...");
+                        Serial.print("PASS:["); Serial.print(wifi_password); Serial.println("]");
+                    }
+                    Serial.print("SSID_from_n:[");Serial.print(wifi_ssid);Serial.println("]");
+                    WiFi.begin(wifi_ssid, wifi_password);
                     while (WiFi.status() != WL_CONNECTED) {
                         delay(300);
                         Serial.print(".");
