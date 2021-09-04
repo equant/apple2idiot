@@ -10,14 +10,6 @@ a single string contained within the dual port ram on the card.
 // Load Wi-Fi library
 #include <WiFi.h>
 
-/**********************/
-/* Default WiFi       */
-/**********************/
-
-// Replace with your network credentials
-const char* wifi_ssid = "ella";
-const char* wifi_password = "";
-
 /**************/
 /* ESP32 Pins */
 /**************/
@@ -218,28 +210,13 @@ void setup() {
     pinMode(INPUT_34, INPUT);
     pinMode(INPUT_35, INPUT);
 
-    Serial.println("");
-    Serial.println("Starting wifi...");
-    Serial.print("  connecting to: ");
-    Serial.println(wifi_ssid);
-
-    WiFi.begin(wifi_ssid, wifi_password);
-    while (WiFi.status() != WL_CONNECTED) {
-        delay(900);
-        Serial.print(".");
-    }
-
-    Serial.println("");
-    Serial.println("WiFi connected successfully");
-    Serial.print("Got IP: ");
-    Serial.println(WiFi.localIP());  //Show ESP32 IP on serial
+    write_string_to_shared_ram("Starting Up!", SHARED_RAM_START_ADDRESS);
     
     // Set WiFi to station mode and disconnect from an AP if it was previously connected
     WiFi.mode(WIFI_STA);
     WiFi.disconnect();
     delay(10);
 
-    write_string_to_shared_ram("Starting Up!", SHARED_RAM_START_ADDRESS);
     write_data(ESP_COMMAND_ADDRESS, ACK); 
     write_data(APPLE_COMMAND_ADDRESS, ACK);
 
