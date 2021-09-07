@@ -8,7 +8,7 @@ Things are in the early stages of development, but it is working.  The card cont
 
 ### The Card
 
-This is actively being developed (as of September 2021).  The rev 0.2 board doesn't work without
+This is actively being developed (as of September 2021).  The rev 0.1 board doesn't work without
 some bodge wires
 
 Rev 0.2 boards are going to be ordered sometime this month.
