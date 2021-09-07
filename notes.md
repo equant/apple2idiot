@@ -1,10 +1,24 @@
+## Debugging board 08/28/2021
+
+What the ESP thinks is address 0x00 (0xC200) is 0xC2FF,49919 to the Apple.
+AND the data from the ESP is 192 and the apple sees 3, so the endian is backwards
+for the data and logic levels for the address are flipped.
+
 ## Needed changes to board
 
 DONE: Add a GND and +5V breakout.
 Fix DEVSEL address in silkscreen docs.
 DONE: Unconnect addresses above A7.
 DONE: Add diode to +5V.
+Move ESP32 towards keyboard to accomodate USB
+Software reset of ESP32
 
+
+## Thanks
+
+Renee
+flux
+c2t
 
 ## Ordered:
 
