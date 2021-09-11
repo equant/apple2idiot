@@ -79,14 +79,12 @@ void loop() {
             Serial.print("Command Switch command_byte: ");
             Serial.println(command_byte);
             switch(command_byte) {
-                case COMMAND_SCAN_WIFI:
+                case COMMAND_WIFI_SCAN:
                     a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
                     scan_wifi();
                     a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
                     break;
-            }
-            switch(command_byte) {
-                case COMMAND_CONNECT:
+                case COMMAND_WIFI_CONNECT:
                     a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
                     int access_point_n = a2i.read_data(SHARED_RAM_START_ADDRESS) - 1;
                     String ssid_as_String = WiFi.SSID(access_point_n);

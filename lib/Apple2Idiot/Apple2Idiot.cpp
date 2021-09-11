@@ -43,7 +43,7 @@ void Apple2Idiot::unbusy_ram() {
 
 boolean Apple2Idiot::set_address(int address) {
     if (ram_busy) {
-        Serial.println("BUSY");        
+        //Serial.println("BUSY");        
         return false;
     }
     ram_busy = true;
@@ -78,14 +78,14 @@ boolean Apple2Idiot::write_data(byte address, byte byte_to_write) {
     Serial.println(address);        
     if (set_address(address)) {
         //set_address(address);
-        Serial.print("    D:");        
+        //Serial.print("    D:");        
         for (byte i=0; i<DATA_BUS_SIZE; i++) {
             byte bit_to_write = (byte_to_write >> i) & 0b00000001;
             pinMode(data_pins[i], OUTPUT);
             digitalWrite(data_pins[i], bit_to_write);
-            Serial.print(bit_to_write);        
+            //Serial.print(bit_to_write);        
         }
-        Serial.println();        
+        //Serial.println();        
         digitalWrite(RW_PIN, RW_WRITE);
         delay(1);
         digitalWrite(RW_PIN, RW_READ);
@@ -123,7 +123,9 @@ String Apple2Idiot::read_string_from_ram(int address) {
     String read_string = "";
     while ( (i<MAX_STR_LEN) && (c!=ETX) ) {
         c = read_data(address+i);
-        read_string = read_string + char(c);
+        if (c!=ETX) {
+            read_string = read_string + char(c);
+        }
         i++;
     }
     Serial.print("READ STRING:");
