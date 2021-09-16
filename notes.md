@@ -10,7 +10,7 @@ DONE: Add a GND and +5V breakout.
 Fix DEVSEL address in silkscreen docs.
 DONE: Unconnect addresses above A7.
 DONE: Add diode to +5V.
-Move ESP32 towards keyboard to accomodate USB
+DONE: Move ESP32 towards keyboard to accomodate USB
 Software reset of ESP32
 
 

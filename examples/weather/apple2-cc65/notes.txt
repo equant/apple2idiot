@@ -1,0 +1,2 @@
+cl65 -t apple2 hello2.c -o hello2.apple2
+java -jar ~/bin/AppleCommander.jar -as hello.dsk hello bin < hello

@@ -1,2 +1,7 @@
 *.swp
 .gitattributes
+*Output.txt
+_FileInformation.txt
+history
+
+
