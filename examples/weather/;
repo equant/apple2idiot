@@ -27,9 +27,6 @@ const char* wifi_password = "xerxes27";
 const String weather_service_api_key= "0ab97bbbea58592d7c9d64067a34d2d0";
 const String weather_url = "http://api.openweathermap.org/data/2.5/weather?";
 
-String country_code = "US";
-String city_name = "Tucson";
-
 /*******************/
 /*    Misc         */
 /*******************/
@@ -71,12 +68,11 @@ void setup() {
 #                   Functions                    #
 ################################################*/
 
-byte fetch_weather() {
+byte fetch_weather(char* city_name) {
 
     byte result = 0;
     HTTPClient http;
-    //const String request_url = weather_url + "q=Tucson,us&APPID=" + weather_service_api_key;
-    const String request_url = weather_url + "q=" + city_name + "," + country_code + "&APPID=" + weather_service_api_key;
+    const String request_url = weather_url + "q=Tucson,us&APPID=" + weather_service_api_key;
     Serial.println(request_url);
     http.begin(request_url);
     int httpCode = http.GET();  //Make the request
@@ -102,23 +98,30 @@ byte fetch_weather() {
             Serial.print(F("deserializeJson() failed: "));
             Serial.println(error.f_str());
         } else {
+            //const char* main = doc["main"];
             Serial.println("----------------------");
             serializeJsonPretty(doc, Serial);
             Serial.println("----------------------");
             serializeJsonPretty(doc["wind"], Serial);
             Serial.println("----------------------");
+            //int temp       = doc["main"]["temp"];
+            //int humidity   = doc["main"]["humidity"];
+            //float wind_speed = doc["wind"]["speed"];
+            //int wind_deg   = doc["wind"]["deg"];
+            //String weather_description = doc["weather"][0]["description"];
+            //a2i.write_data(0, round(temp-273.15));
+            //a2i.write_data(1, round(humidity));
+            //a2i.write_data(2, round(wind_deg/10));      // divide by twn because 360 is too big for 8 bits
+            //a2i.write_data(3, round(wind_speed));
             String temp       = doc["main"]["temp"];
             String humidity   = doc["main"]["humidity"];
             String wind_speed = doc["wind"]["speed"];
             String wind_deg   = doc["wind"]["deg"];
-            String weather_description1 = doc["weather"][0]["main"];
-            String weather_description2 = doc["weather"][0]["description"];
+            String weather_description = doc["weather"][0]["description"];
             int address_counter = a2i.write_string_to_shared_ram(temp, SHARED_RAM_START_ADDRESS);
             address_counter = a2i.write_string_to_shared_ram(humidity, address_counter + 1);
             address_counter = a2i.write_string_to_shared_ram(wind_speed, address_counter + 1);
             address_counter = a2i.write_string_to_shared_ram(wind_deg, address_counter + 1);
-            address_counter = a2i.write_string_to_shared_ram(weather_description1, address_counter + 1);
-            address_counter = a2i.write_string_to_shared_ram(weather_description2, address_counter + 1);
         }
         result = ACK;
     }
@@ -149,25 +152,20 @@ void loop() {
             Serial.println(command_byte);
             switch(command_byte) {
                 case COMMAND_SET_COUNTRY:
-                    Serial.println("COMMAND_SET_COUNTRY");
-                    a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
-                    country_code = a2i.read_string_from_ram(SHARED_RAM_START_ADDRESS);
-                    Serial.println("Received: ["+country_code+"]");
-                    a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
-                    a2i.write_data(ESP_COMMAND_ADDRESS, EOT);   // notify Apple IIe we are done processing command byte
+                    //a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
+                    //int access_point_n = a2i.read_data(SHARED_RAM_START_ADDRESS) - 1;
+                    //String password_as_String = a2i.read_string_from_ram(SHARED_RAM_START_ADDRESS+1);
+                    //a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
                     break;
                 case COMMAND_SET_CITY:
-                    Serial.println("COMMAND_SET_CITY");
-                    a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
-                    city_name = a2i.read_string_from_ram(SHARED_RAM_START_ADDRESS);
-                    Serial.println("Received: ["+city_name+"]");
-                    a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
-                    a2i.write_data(ESP_COMMAND_ADDRESS, EOT);   // notify Apple IIe we are done processing command byte
+                    //a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
+                    //int access_point_n = a2i.read_data(SHARED_RAM_START_ADDRESS) - 1;
+                    //String password_as_String = a2i.read_string_from_ram(SHARED_RAM_START_ADDRESS+1);
+                    //a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
                     break;
                 case COMMAND_FETCH_WEATHER:
-                    Serial.println("COMMAND_FETCH_WEATHER");
                     a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
-                    result = fetch_weather();
+                    result = fetch_weather("Tucson");
                     a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
                     a2i.write_data(ESP_COMMAND_ADDRESS, result);   // notify Apple IIe we are done processing command byte
                     break;

@@ -13,6 +13,10 @@ DONE: Add diode to +5V.
 DONE: Move ESP32 towards keyboard to accomodate USB
 Software reset of ESP32
 
+## Potential Trivial Features
+
++ Gives each computer a unique ID (MAC address)
++ Prodos driver for NPT time.
 
 ## Thanks
 
