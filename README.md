@@ -1,4 +1,4 @@
-<img align='right' width='50%' src=''><br>
+<img align='right' width='50%' src='https://raw.githubusercontent.com/equant/apple2idiot/main/misc/media/PXL_20210828_225322205.jpg'><br>
 
 # apple2idiot card
 
