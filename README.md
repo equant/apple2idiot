@@ -1,4 +1,4 @@
-# apple2idiot
+# apple2idiot card
 
 A general purpose ESP32 Wifi and Bluetooth board for the Apple II family of
 computers (with expansion slots).  
