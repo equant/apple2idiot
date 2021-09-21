@@ -53,7 +53,8 @@ byte address_pins[] = {A0R, A1R, A2R, A3R, A4R, A5R, A6R, A7R};
 #define INPUT_35 35
 #define INPUT_34 34
 
-#define ETX 3   // ASCII "End of Text" (ETX) character
+// deprecated.  use NULL
+//#define ETX 3   // ASCII "End of Text" (ETX) character
 #define ACK 0b00000110  // Acknowledge
 #define EOT 0b00000100  // End of transmit
 
@@ -147,7 +148,7 @@ void send_string_to_apple(String string_to_send, int address) {
         Serial.println(string_to_send[c]);
         write_data(address+c, string_to_send[c]);
     }
-    write_data(address+c, ETX);
+    write_data(address+c, NULL);
     //write_data(15, COMMAND_FROM_ESP + command_message + COMMAND_NO_DATA_WAITING);
     write_data(ESP_COMMAND_ADDRESS, 27);
 }
@@ -156,7 +157,7 @@ String read_string_from_ram(int address) {
     byte c = 0;
     int i = 0;
     String read_string = "";
-    while ( (i<MAX_STR_LEN) && (c!=ETX) ) {
+    while ( (i<MAX_STR_LEN) && (c!=NULL) ) {
         c = read_data(address+i);
         read_string = read_string + char(c);
         i++;

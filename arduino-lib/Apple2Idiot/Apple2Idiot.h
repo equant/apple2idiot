@@ -37,7 +37,9 @@
 #define RW_WRITE    LOW
 #define RW_READ     HIGH
 
-#define ETX 3   // ASCII "End of Text" (ETX) character
+// Deprecated ETX.  Use NULL terminated strings now.
+//#define ETX 0   // ASCII "End of Text" (ETX) character
+#define EOS 0
 
 #define INPUT_35 35
 #define INPUT_34 34

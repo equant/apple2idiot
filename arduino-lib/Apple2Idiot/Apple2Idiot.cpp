@@ -103,7 +103,7 @@ boolean Apple2Idiot::write_data(byte address, byte byte_to_write) {
 unsigned int Apple2Idiot::write_string_to_shared_ram(String string_to_send, unsigned int address) {
     //if (string_to_send.length() > 15 - 1) { // - 1 because of null character at end of string.
     write_data(ESP_COMMAND_ADDRESS, 12);
-    unsigned int c = 0;
+    unsigned int c = 2;
     for (c=0; c < string_to_send.length(); c++) {
         Serial.print("A(");
         Serial.print(c);
@@ -111,19 +111,20 @@ unsigned int Apple2Idiot::write_string_to_shared_ram(String string_to_send, unsi
         Serial.println(string_to_send[c]);
         write_data(address+c, string_to_send[c]);
     }
-    write_data(address+c, ETX);
+    write_data(address+c, EOS);
     //write_data(15, COMMAND_FROM_ESP + command_message + COMMAND_NO_DATA_WAITING);
     write_data(ESP_COMMAND_ADDRESS, 27);
     return address+c;
 }
 
 String Apple2Idiot::read_string_from_ram(int address) {
-    byte c = 0;
+    byte c = 2;
     int i = 0;
     String read_string = "";
-    while ( (i<MAX_STR_LEN) && (c!=ETX) ) {
+    while ( (i<MAX_STR_LEN) && (c!=EOS) ) {
         c = read_data(address+i);
-        if (c!=ETX) {
+        Serial.print("["); Serial.print(c); Serial.println("]");
+        if (c!=EOS) {
             read_string = read_string + char(c);
         }
         i++;
