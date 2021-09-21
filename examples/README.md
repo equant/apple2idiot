@@ -1,9 +1,13 @@
 # apple2idiot
 A general purpose ESP32 IOT board for the Apple IIe
 
-# Requirements
+The best example at the moment is `weather/`.
 
-## Arduino Libraries
+## Potential requirements
+
+Some of these examples require things.  Here are some notes I've been taking...
+
+### Arduino Libraries
 
 + https://github.com/me-no-dev/ESPAsyncWebServer
 + https://github.com/me-no-dev/AsyncTCP
@@ -20,8 +24,6 @@ unzip ESPAsyncWebServer-master.zip
 mv AsyncTCP-master AsyncTCP
 mv ESPAsyncWebServer-master ESPAsyncWebServer
 ```
-
-## Potential requirements
 
 For ESP32 webserver to serve static files...
 
