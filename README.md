@@ -1,7 +1,5 @@
-<img align='right' width='50%' src='https://raw.githubusercontent.com/equant/apple2idiot/main/misc/media/PXL_20210828_225322205.jpg'><br>
-
 # apple2idiot card
-
+<img align='right' width='50%' src='https://raw.githubusercontent.com/equant/apple2idiot/main/misc/media/PXL_20210828_225322205.jpg'><br>
 A general purpose ESP32 Wifi and Bluetooth board for the Apple II family of
 computers (with expansion slots).  
 
@@ -24,6 +22,8 @@ it's programmed to resppond.
 * Get current weather conditions for a city.
 * Select Wifi AP.
 * Dedicated rot13 string encoder.
+
+<img src='https://raw.githubusercontent.com/equant/apple2idiot/main/misc/media/PXL_20210903_012330167.jpg'><br>
 
 ## Status
 
@@ -49,6 +49,8 @@ Here are some things I'm interested in making work...
 * Home automation using MQTT
 * Peer-to-peer local area chat/games using ESPNOW or something similar
 * Wikipedia access
+
+<img src='https://raw.githubusercontent.com/equant/apple2idiot/main/misc/media/PXL_20210921_174006995.jpg'><br>
 
 ## Want to help?
 
