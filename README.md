@@ -1,3 +1,6 @@
+<img align='right' width='50%' src=''><br>
+
+
 # apple2idiot
 
 A general purpose ESP32 Wifi and Bluetooth board for the Apple II family of
