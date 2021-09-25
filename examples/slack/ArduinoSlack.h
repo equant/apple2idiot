@@ -46,6 +46,7 @@ MIT License
 #define SLACK_USERS_SET_PRESENCE_ENDPOINT "/api/users.setPresence?presence=%s"
 #define SLACK_POST_MESSAGE_ENDPOINT "/api/chat.postMessage"
 #define SLACK_CONVERSATIONS_HISTORY_ENDPOINT "/api/conversations.history"
+#define SLACK_USERS_CONVERSATIONS_ENDPOINT "/api/users.conversations"
 
 struct SlackProfile
 {
@@ -66,9 +67,13 @@ struct SlackMessage
   bool error;
 };
 
-struct SlackConvoHist
+struct SlackUsersConversations
 {
-  JsonObject messageObj;
+  JsonObject channelsObj;
+  //String channelNames[22];
+  //String channelIds[22];
+  char *channelNames[17];
+  char *channelIds[17];
   bool error;
 };
 
@@ -78,10 +83,11 @@ class ArduinoSlack
 public:
   ArduinoSlack(Client &client, const char *bearerToken);
 
+  int makeGetRequest(const char *command);
   int makePostRequest(const char *command, const char *body, const char *contentType = "application/json");
   SlackProfile setCustomStatus(const char *text, const char *emoji, int expiration = 0);
   SlackMessage postMessage(const char *channel, const char *text);
-  SlackConvoHist conversationHistory(const char *channel, const char *limit);
+  SlackUsersConversations usersConversations();
   bool setPresence(const char *presence);
   int portNumber = 443;
   int profileBufferSize = 10000;
@@ -93,6 +99,8 @@ private:
   void skipHeaders(bool tossUnexpectedForJSON = true);
   void closeClient();
 
+  const char *usersConversationsGET =
+      R"(%s?exclude_arc=True&limit=1)";
   const char *setConvoHistoryBody =
       R"({"channel": "%s", "limit": "%s"})";
   const char *setMessageBody =

@@ -14,7 +14,7 @@ ArduinoSlack::ArduinoSlack(Client &client, const char *bearerToken)
     this->_bearerToken = bearerToken;
 }
 
-int ArduinoSlack::makeGetRequest(const char *command, const char *body, const char *contentType)
+int ArduinoSlack::makeGetRequest(const char *command)
 {
     client->flush();
     client->setTimeout(SLACK_TIMEOUT);
@@ -36,22 +36,23 @@ int ArduinoSlack::makeGetRequest(const char *command, const char *body, const ch
     client->print(F("Host: "));
     client->println(SLACK_HOST);
 
-    client->println(F("Accept: application/json"));
-    client->print(F("Content-Type: "));
-    client->println(contentType);
+    //client->println(F("Accept: application/json"));
+    //client->print(F("Content-Type: "));
+    //client->println(contentType);
 
     client->print(F("Authorization: Bearer "));
     client->println(_bearerToken);
 
     client->println(F("Cache-Control: no-cache"));
 
-    client->print(F("Content-Length: "));
-    client->println(strlen(body));
+    //client->print(F("Content-Length: "));
+    //client->println(strlen(body));
 
     client->println();
+    //client->println();
 
     //send Data here?
-    client->print(body);
+    //client->print(body);
 
     if (client->println() == 0)
     {
@@ -162,51 +163,123 @@ bool ArduinoSlack::setPresence(const char *presence)
     return okStatus;
 }
 
-SlackConvoHist ArduinoSlack::conversationHistory(const char *channel, const char *limit)
+SlackUsersConversations ArduinoSlack::usersConversations()
 {
-    SLACK_DEBUG_SERIAL_LN(F("--------------"));
-    SLACK_DEBUG_SERIAL_LN(F("conversationHistory()"));
-    char body[300];
-    sprintf(body, setConvoHistoryBody, channel, limit);
-    SLACK_DEBUG_SERIAL_LN(body);
+    //char body[300];
+    //sprintf(body, setConvoHistoryBody, channel, limit);
+    //SLACK_DEBUG_SERIAL_LN(body);
 
     // Get from https://arduinojson.org/v6/assistant/
     const size_t bufferSize = profileBufferSize;
 
-    SlackConvoHist conversation;;
+    SlackUsersConversations conversations;
     // This flag will get cleared if all goes well
-    conversation.error = true;
-    if (makePostRequest(SLACK_CONVERSATIONS_HISTORY_ENDPOINT, body) == 200)
+    conversations.error = true;
+    //SLACK_SERIAL_LN("GET String:");
+    //SLACK_SERIAL_LN(SLACK_CONVERSATIONS_HISTORY_ENDPOINT);
+    //SLACK_SERIAL_LN(usersConversationsGET);
+    //int response = makeGetRequest(SLACK_USERS_CONVERSATIONS_ENDPOINT);
+    int response = makeGetRequest("/api/users.conversations?exclude_arc=True&limit=17");
+    //if (makeGetRequest(SLACK_USERS_CONVERSATIONS_ENDPOINT) == 200)
+    if (response == 200)
     {
+
+        // So it seems for whatever reason every other line is bad.  I don't
+        // know why this is, but this will remove them so they don't break
+        // the Json...
+        String chunk;
+        String payload;
+        int limit=1;
+        do {
+            if (client->connected()) {
+              yield();
+              chunk = client->readStringUntil('\n');
+              //SLACK_DEBUG_SERIAL("CHUNK #");
+              //SLACK_DEBUG_SERIAL(limit);
+              //SLACK_DEBUG_SERIAL(": ");
+              //SLACK_DEBUG_SERIAL_LN(chunk);
+              if (limit % 2 == 0) {
+                  // skip even lines.
+              } else {
+                  payload += chunk;
+              }
+            }
+        } while (chunk.length() > 0 && ++limit < 100);
+        //String payload = client->readString();
+        //SLACK_DEBUG_SERIAL_LN("Payload!");
+        //SLACK_DEBUG_SERIAL_LN(payload);
+
         // Allocate DynamicJsonDocument
         DynamicJsonDocument doc(bufferSize);
 
         // Parse JSON object
-        DeserializationError error = deserializeJson(doc, *client);
+        StaticJsonDocument<200> filter;
+        filter["channels"][0]["name"]   = true;
+        filter["channels"][0]["id"]   = true;
+        filter["response_metadata"]["next_cursor"] = true;
+        //StaticJsonDocument<400> doc;
+        //DeserializationError error = deserializeJson(doc, *client, DeserializationOption::Filter(filter));
+        DeserializationError error = deserializeJson(doc, payload, DeserializationOption::Filter(filter));
         if (!error)
         {
             SLACK_DEBUG_SERIAL_LN(F("parsed Json Object: "));
 #ifdef SLACK_ENABLE_DEBUG
             serializeJson(doc, Serial);
 #endif
-            JsonObject messageObj = doc["messages"];
-            conversation.messageObj = messageObj;
 
-            //message.text     = (char *)messageObj["text"].as<char *>();
-            //message.username = (char *)messageObj["username"].as<char *>();
-            //message.bot_id   = (char *)messageObj["bot_id"].as<char *>();
-            //message.type     = (char *)messageObj["type"].as<char *>();
+            JsonObject channelsObj = doc["channels"];
+            conversations.channelsObj = channelsObj;
+            SLACK_DEBUG_SERIAL_LN(F(""));
+            SLACK_DEBUG_SERIAL_LN(F("+++++++++++++++++++++++++++++++++"));
+            SLACK_DEBUG_SERIAL_LN(doc["channels"].size());
+            SLACK_DEBUG_SERIAL_LN(F(""));
+            serializeJsonPretty(doc["channels"][0], Serial);
+            SLACK_DEBUG_SERIAL_LN(F(""));
+            serializeJsonPretty(doc["channels"][1], Serial);
+            SLACK_DEBUG_SERIAL_LN(F(""));
+            serializeJsonPretty(doc["channels"][doc["channels"].size()-1], Serial);
+            SLACK_DEBUG_SERIAL_LN(F(""));
+            SLACK_DEBUG_SERIAL_LN(F("+++++++++++++++++++++++++++++++++"));
+            SLACK_DEBUG_SERIAL_LN(F(""));
 
-            conversation.error = false;
+            //char (*a[2])[14]
+            //String *channel_names[doc["channels"].size()];
+            //String *channel_ids[doc["channels"].size()];
+            //String channel_names[22];
+            //String channel_ids[22];
+            for (int ii=0; ii<doc["channels"].size(); ii++) {
+                //channel_names[ii] = (char *)doc["channels"][ii]["name"].as<char *>();
+                //channel_ids[ii]   = (char *)doc["channels"][ii]["id"].as<char *>();
+                //channel_names[ii] = doc["channels"][ii]["name"];
+                //channel_ids[ii]   = doc["channels"][ii]["id"];
+                //conversations.channelNames[ii] = doc["channels"][ii]["name"];
+                conversations.channelNames[ii] = (char *)doc["channels"][ii]["name"].as<char *>();
+            }
+
+            //conversations.channelNames = (char *)doc[0]["name"].as<char *>();
+            //conversations.channelIds   = (char *)doc[0]["id"].as<char *>();
+            //channels.text     = (char *)doc["text"].as<char *>();
+            //channels.username = (char *)doc["username"].as<char *>();
+            //channels.bot_id   = (char *)doc["bot_id"].as<char *>();
+            //channels.type     = (char *)doc["type"].as<char *>();
+
+            //channels.channelNames = channel_names;
+            //channels.channelIds = channel_ids;
+
+
+            conversations.error = false;
         }
         else
         {
             SLACK_DEBUG_SERIAL(F("deserializeJson() failed with code "));
             SLACK_DEBUG_SERIAL_LN(error.c_str());
         }
+    } else {
+        SLACK_DEBUG_SERIAL_LN(F("Didn't get 200"));
+            SLACK_DEBUG_SERIAL_LN(response);
     }
     closeClient();
-    return conversation;
+    return conversations;
 }
 
 
@@ -317,8 +390,8 @@ void ArduinoSlack::skipHeaders(bool tossUnexpectedForJSON)
         {
             char c = 0;
             client->readBytes(&c, 1);
-            SLACK_DEBUG_SERIAL(F("Tossing an unexpected character: "));
-            SLACK_DEBUG_SERIAL_LN(c);
+            //SLACK_DEBUG_SERIAL(F("Tossing an unexpected character: "));
+            //SLACK_DEBUG_SERIAL_LN(c);
         }
     }
 }
