@@ -1,0 +1,622 @@
+{
+    "ok": true,
+    "channels": [
+        {
+            "id": "C1J89GVL4",
+            "name": "general",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1466354298,
+            "is_archived": false,
+            "is_general": true,
+            "unlinked": 0,
+            "name_normalized": "general",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1J75A8PM",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "Be excellent to each other.  :the_horns:",
+                "creator": "U1J75A8PM",
+                "last_set": 1599072909
+            },
+            "purpose": {
+                "value": "This channel is for team-wide communication and announcements. All team members are in this channel.",
+                "creator": "",
+                "last_set": 0
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CA77AFDL4",
+            "name": "swapmeet",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1523884293,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "swapmeet",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1J75A8PM",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "Please keep sales, trades, biz talk here.  Thanks!",
+                "creator": "U1J75A8PM",
+                "last_set": 1523884293
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CA79CS7V3",
+            "name": "kansasfest",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1523832275,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "kansasfest",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1J75A8PM",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "KansasFest 2021 (Online only) - July 23-24, 2021 - <https://www.kansasfest.org/>",
+                "creator": "U1TS7D80Y",
+                "last_set": 1624817840
+            },
+            "purpose": {
+                "value": "KansasFest 2018!!!",
+                "creator": "U1J75A8PM",
+                "last_set": 1523832275
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CA7DAGTJ8",
+            "name": "hardwarehackers",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1523900178,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "hardwarehackers",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1J75A8PM",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "Trying to plug it in? Building something? Got a question? *POW* Bring it in here!",
+                "creator": "U1TKU4H52",
+                "last_set": 1567374624
+            },
+            "purpose": {
+                "value": "Trying to plug it in? Building something? Got a question? *POW* Bring it in here!",
+                "creator": "U1J75A8PM",
+                "last_set": 1523900179
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CA8AT5886",
+            "name": "coding",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1523883870,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "coding",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1J75A8PM",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "U1J75A8PM",
+                "last_set": 1525527970
+            },
+            "purpose": {
+                "value": "Programming, code golf, experiments, questions on coding, all languages.",
+                "creator": "U1J75A8PM",
+                "last_set": 1587554014
+            },
+            "previous_names": [
+                "democoders"
+            ]
+        },
+        {
+            "id": "CA8LXU4BV",
+            "name": "raspberry-ii",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1524041980,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "raspberry-ii",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1TMNSKMX",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "Fun ways to use a Raspberry Pi with your Apple II (Raspple II, Apple 2 Pi, etc)",
+                "creator": "U1TMNSKMX",
+                "last_set": 1524439726
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CABARQ39S",
+            "name": "show-and-tell",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1524499762,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "show-and-tell",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "UA8HABGKG",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "Show off your goods!",
+                "creator": "UA8HABGKG",
+                "last_set": 1524499762
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CABEM8JFK",
+            "name": "emulators",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1524560064,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "emulators",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1TJZNH1B",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "Apple II Emulation",
+                "creator": "U1TJZNH1B",
+                "last_set": 1524560069
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CB52YS4UR",
+            "name": "applehistory",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1528749885,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "applehistory",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1TK8V99Q",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CPS2TG28L",
+            "name": "appleii",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1571964280,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "appleii",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "UNGDL366N",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "Everything Apple II",
+                "creator": "UNGDL366N",
+                "last_set": 1571964280
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CPUNLH9ML",
+            "name": "fix_or_repair",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1571964217,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "fix_or_repair",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "UNGDL366N",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "Channel for fixing vintage Apple Computers.",
+                "creator": "UNGDL366N",
+                "last_set": 1571964217
+            },
+            "previous_names": []
+        },
+        {
+            "id": "CQF1PHTFY",
+            "name": "joeylib",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1573419513,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "joeylib",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "UCLBUA2JU",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "Cross-platform game development library and IDE.  <https://joeylib.com>",
+                "creator": "UCLBUA2JU",
+                "last_set": 1630633667
+            },
+            "purpose": {
+                "value": "To Rule the World.",
+                "creator": "UCLBUA2JU",
+                "last_set": 1596836336
+            },
+            "previous_names": []
+        },
+        {
+            "id": "C019N82J96Z",
+            "name": "prodos",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1598719399,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "prodos",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "UA8FVE12T",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "ProDOS 8 use/dev",
+                "creator": "UA8FVE12T",
+                "last_set": 1598719400
+            },
+            "previous_names": []
+        },
+        {
+            "id": "C01J91LFSQ3",
+            "name": "romx",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1610079702,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "romx",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U01HJQK9TU3",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "ROMX rom replacement boards (<http://www.theRomExchange.com|www.theRomExchange.com>)",
+                "creator": "U01HJQK9TU3",
+                "last_set": 1610079703
+            },
+            "previous_names": []
+        },
+        {
+            "id": "C01NHA835NF",
+            "name": "classicmac",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1613625903,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "classicmac",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1TJZNH1B",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "For Classic (Pre-Intel) Mac Discussion",
+                "creator": "U1TJZNH1B",
+                "last_set": 1613625904
+            },
+            "previous_names": []
+        },
+        {
+            "id": "C02B4PJ223X",
+            "name": "applecorn",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1628990910,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "applecorn",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "UNE040UAK",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "<https://github.com/bobbimanners/Applecorn>",
+                "creator": "UNE040UAK",
+                "last_set": 1628991004
+            },
+            "purpose": {
+                "value": "Applecorn - run BBC Micro language ROMs on //e Enhanced",
+                "creator": "UNE040UAK",
+                "last_set": 1628990910
+            },
+            "previous_names": []
+        },
+        {
+            "id": "C02EAQECY5A",
+            "name": "equant-test",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1631378860,
+            "is_archived": false,
+            "is_general": false,
+            "unlinked": 0,
+            "name_normalized": "equant-test",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U025NNCFL3G",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "",
+                "creator": "",
+                "last_set": 0
+            },
+            "purpose": {
+                "value": "A test channel for developing a Slack app to run on the Apple2Idiot card.",
+                "creator": "U025NNCFL3G",
+                "last_set": 1631378861
+            },
+            "previous_names": []
+        }
+    ],
+    "response_metadata": {
+        "next_cursor": ""
+    }
+}
