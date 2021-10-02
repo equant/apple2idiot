@@ -1,31 +1,45 @@
+#ifndef A2I_COMMANDS_H
+#define A2I_COMMANDS_H
 //
-// Commands and messages that are communicated between the ESP and the Apple
+// Addresses, Commands and messages that are communicated between the ESP and the Apple
 // via the dual-port ram.
-//
-// Commands >=200 are "non-reserved", and are meant
-// to be defined within scipts that use this library.
-// So anything in this library should be below 200.
-//
-// If the values of these defines are changed, then they will need to be
-// updated within the code that runs on the Apple as well.
 
-#define SHARED_RAM_START_ADDRESS 2
 
-#define ACK 0b00000110  // Acknowledge
-#define EOT 0b00000100  // End of transmit
-#define ERR 0b00000101  // Error
-#define MORE_TO_SEND 0b00000111
+// Address offsets
+#define RAM_A2I 0
+#define RAM_APPLE 1 
+#define SHARED_RAM_START_ADDRESS 2 
+
+
+#define MAIN_LOOP_INTERVAL  3   // Unimplemented
+#define EOT 4               // End of transmit
+#define ERR 5               // Error
+#define ACK 6               // Acknowledge
+
+#define COMMAND_NOT_FOUND 7
 
 /*################################################
 #                GENERIC STATUSES                #
 ################################################*/
+#define MORE_TO_SEND 10
 #define NOT_FOUND 11
 
 /*################################################
 #                      WIFI                      #
 ################################################*/
-#define COMMAND_WIFI_SCAN 111
-#define COMMAND_WIFI_CONNECT 112
+#define COMMAND_WIFI_SCAN 21
+#define COMMAND_WIFI_CONNECT 22
+#define COMMAND_WIFI_DISCONNECT 23      // Unimplemented
+#define WIFI_CONNECTED 24               // Unimplemented
+#define WIFI_NOT_CONNECTED 25           // Unimplemented
+
+/*################################################
+#                  PROGRAM IDS                   #
+################################################*/
+
+#define APP_WEATHER 200                 // Unimplemented
+#define APP_CHESS   201                 // Unimplemented
+
 
 /*################################################
 #                     SLACK (50)                 #
@@ -37,3 +51,4 @@
 #define COMMAND_SEND_MESSAGE 54
 #define COMMAND_GET_MESSAGES 55
 
+#endif
