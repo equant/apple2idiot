@@ -1,5 +1,5 @@
-#ifndef A2I_CHESS_H
-#define A2I_CHESS_H
+#ifndef A2I_CHESS_COMMANDS_H
+#define A2I_CHESS_COMMANDS_H
 
 /* Apple II <-> ESP Commands */
 #define CHESS_GET_AI_MOVE     20

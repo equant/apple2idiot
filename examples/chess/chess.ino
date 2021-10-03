@@ -69,8 +69,8 @@ void setup() {
     current_app_id = app_ids[0];
 
     //chess_app.validateMove("g8f6");
-    chess_app.makeMove("g8f6");
-    chess_app.getBoard();
+    //chess_app.makeMove("g8f6");
+    //chess_app.getBoard();
 }
 
 /*################################################
