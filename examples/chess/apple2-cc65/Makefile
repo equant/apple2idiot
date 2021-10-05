@@ -9,16 +9,17 @@
 
 # Space or comma separated list of cc65 supported target platforms to build for.
 # Default: c64 (lowercase!)
-TARGETS := apple2
+TARGETS := apple2enh
+#TARGETS := apple2
 
 # Name of the final, single-file executable.
 # Default: name of the current dir with target name appended
-PROGRAM := weather
+PROGRAM := chess
 
 # Path(s) to additional libraries required for linking the program
 # Use only if you don't want to place copies of the libraries in SRCDIR
 # Default: none
-LIBS    :=
+LIBS    := 
 
 # Custom linker configuration file
 # Use only if you don't want to place it in SRCDIR

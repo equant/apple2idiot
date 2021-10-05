@@ -11,19 +11,20 @@
 void Chess::init(Apple2Idiot *a2ip, HTTPClient *httpp) {
     a2i  = a2ip;
     http = httpp;
-    strcpy(game_string, "a2a3e7e5e2e4");
+    //strcpy(game_string, "a2a3e7e5e2e4");
 }
 
 byte Chess::handleCommand(byte command) {
     switch(command) {
         case CHESS_MAKE_MOVE: {
-            Serial.println("CHESS() MAKE_MOVE");
             a2i->write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
+            Serial.println("CHESS() MAKE_MOVE");
             String move_string;
             move_string = a2i->read_string_from_ram(SHARED_RAM_START_ADDRESS);
             Serial.println("Received move: ["+move_string+"]");
             byte result = makeMove(move_string);
-            int address_counter = a2i->write_data(result, SHARED_RAM_START_ADDRESS);
+            a2i->write_data(result, ESP_COMMAND_ADDRESS);
+            int address_counter = a2i->write_string_to_shared_ram(last_ai_move, SHARED_RAM_START_ADDRESS);
             getBoard();
             for (int i=0; i<9; i++) {
                 address_counter = a2i->write_string_to_shared_ram(game_board[i], address_counter + 1);
@@ -69,9 +70,12 @@ byte Chess::makeMove(String move_string) {
     Serial.print("after player move game_status:"); Serial.println(game_status);
 
     if (strcmp(game_status, "in_progress") == 0) {
-        char* ai_move;
-        ai_move = getAIMove();
-        strcat(game_string, ai_move);
+        //char* ai_move;
+        //ai_move = getAIMove();
+        //strcat(game_string, ai_move);
+        //last_ai_move = getAIMove();
+        strcpy(last_ai_move, getAIMove());
+        strcat(game_string, last_ai_move);
         game_status = getGameStatus(game_string);
         Serial.print("after AI move game_status:"); Serial.println(game_status);
         if (strcmp(game_status, "in_progress") == 0) { return STATUS_IN_PROGRESS; }

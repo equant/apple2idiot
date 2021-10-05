@@ -116,8 +116,6 @@ void loop() {
                 chess_app.handleCommand(command_byte);
                 a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
                 //a2i.write_data(ESP_COMMAND_ADDRESS, EOT);   // notify Apple IIe we are done processing command byte
-                //a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
-                //a2i.write_data(ESP_COMMAND_ADDRESS, result);   // notify Apple IIe we are done processing command byte
             }
         }
         lastMainLoopTime = millis();

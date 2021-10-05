@@ -6,9 +6,9 @@
 
 
 // Address offsets
-#define RAM_A2I 0
-#define RAM_APPLE 1 
-#define SHARED_RAM_START_ADDRESS 2 
+//#define RAM_A2I 0
+//#define RAM_APPLE 1 
+//#define SHARED_RAM_START_ADDRESS 2 
 
 
 #define MAIN_LOOP_INTERVAL  3   // Unimplemented

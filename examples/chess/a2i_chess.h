@@ -24,6 +24,8 @@ class Chess {
         char game_string[MAX_GAME_SIZE];    // This is probably not enough, but it's fine for development.
 
         char game_status[25];
+        char last_player_move[5];   // "a2a4"
+        char last_ai_move[5];       // "8g76"
 
         //char game_board[9][20];
         char game_board[9][22] = {

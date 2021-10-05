@@ -1,6 +1,9 @@
 *.swp
+*.swo
 .gitattributes
 *Output.txt
 _FileInformation.txt
 history
 credentials.h
+tags
+*.o
