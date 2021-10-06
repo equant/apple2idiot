@@ -1,0 +1,44 @@
+{
+    "ok": true,
+    "channels": [
+        {
+            "id": "C1J89GVL4",
+            "name": "general",
+            "is_channel": true,
+            "is_group": false,
+            "is_im": false,
+            "created": 1466354298,
+            "is_archived": false,
+            "is_general": true,
+            "unlinked": 0,
+            "name_normalized": "general",
+            "is_shared": false,
+            "parent_conversation": null,
+            "creator": "U1J75A8PM",
+            "is_ext_shared": false,
+            "is_org_shared": false,
+            "shared_team_ids": [
+                "T1J8S1LGH"
+            ],
+            "pending_shared": [],
+            "pending_connected_team_ids": [],
+            "is_pending_ext_shared": false,
+            "is_private": false,
+            "is_mpim": false,
+            "topic": {
+                "value": "Be excellent to each other.  :the_horns:",
+                "creator": "U1J75A8PM",
+                "last_set": 1599072909
+            },
+            "purpose": {
+                "value": "This channel is for team-wide communication and announcements. All team members are in this channel.",
+                "creator": "",
+                "last_set": 0
+            },
+            "previous_names": []
+        }
+    ],
+    "response_metadata": {
+        "next_cursor": "dGVhbTpDQTc3QUZETDQ="
+    }
+}

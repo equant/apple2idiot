@@ -1,5 +1,5 @@
-#ifndef APPLE2IDIOT
-#define APPLE2IDIOT
+#ifndef APPLE2IDIOT_H
+#define APPLE2IDIOT_H
 #include <Arduino.h>
 #include "A2I_commands.h"
 

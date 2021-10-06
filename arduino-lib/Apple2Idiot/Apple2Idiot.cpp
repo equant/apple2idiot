@@ -105,10 +105,10 @@ unsigned int Apple2Idiot::write_string_to_shared_ram(String string_to_send, unsi
     write_data(ESP_COMMAND_ADDRESS, 12);
     unsigned int c = 2;
     for (c=0; c < string_to_send.length(); c++) {
-        Serial.print("A(");
-        Serial.print(c);
-        Serial.print("): ");
-        Serial.println(string_to_send[c]);
+        //Serial.print("A(");
+        //Serial.print(c);
+        //Serial.print("): ");
+        //Serial.println(string_to_send[c]);
         write_data(address+c, string_to_send[c]);
     }
     write_data(address+c, EOS);

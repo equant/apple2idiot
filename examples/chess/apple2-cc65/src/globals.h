@@ -1,0 +1,28 @@
+#ifndef _GLOBALS_H
+#define _GLOBALS_H
+
+#define ASCII_L 76
+#define ASCII_Q 81
+#define ASCII_S 83
+#define ASCII_W 87
+#define BACKSPACE 8
+
+#define SIZE_X 40
+#define SIZE_Y 24
+
+#define STATE_NONE 0
+#define STATE_LOCAL_GAME 1
+#define STATE_QUIT 27
+
+#define CARD_ADDRESS 0xC200
+#define ESP_COMMAND_ADDRESS 0xC200
+#define APPLE_COMMAND_ADDRESS 0xC201
+#define RAM_DATA_START_ADDRESS 0xC202
+
+#define ESP_TIMEOUT 5555
+
+//#define COMMAND_SET_COUNTRY 200
+//#define COMMAND_SET_CITY 201
+//#define COMMAND_FETCH_WEATHER 205
+
+#endif
