@@ -72,20 +72,18 @@ byte Apple2Idiot::read_data(int address) {
 
 
 boolean Apple2Idiot::write_data(byte address, byte byte_to_write) {
-    Serial.print("WRITE: ");
-    Serial.print(byte_to_write);        
-    Serial.print(" -> ");
-    Serial.println(address);        
+    if (address == 0) {
+        Serial.print("WRITE: ");
+        Serial.print(byte_to_write);        
+        Serial.print(" -> ");
+        Serial.println(address);        
+    }
     if (set_address(address)) {
-        //set_address(address);
-        //Serial.print("    D:");        
         for (byte i=0; i<DATA_BUS_SIZE; i++) {
             byte bit_to_write = (byte_to_write >> i) & 0b00000001;
             pinMode(data_pins[i], OUTPUT);
             digitalWrite(data_pins[i], bit_to_write);
-            //Serial.print(bit_to_write);        
         }
-        //Serial.println();        
         digitalWrite(RW_PIN, RW_WRITE);
         delay(1);
         digitalWrite(RW_PIN, RW_READ);
@@ -102,18 +100,14 @@ boolean Apple2Idiot::write_data(byte address, byte byte_to_write) {
 
 unsigned int Apple2Idiot::write_string_to_shared_ram(String string_to_send, unsigned int address) {
     //if (string_to_send.length() > 15 - 1) { // - 1 because of null character at end of string.
-    write_data(ESP_COMMAND_ADDRESS, 12);
+    //write_data(ESP_COMMAND_ADDRESS, 12);
     unsigned int c = 2;
     for (c=0; c < string_to_send.length(); c++) {
-        //Serial.print("A(");
-        //Serial.print(c);
-        //Serial.print("): ");
-        //Serial.println(string_to_send[c]);
         write_data(address+c, string_to_send[c]);
     }
     write_data(address+c, EOS);
     //write_data(15, COMMAND_FROM_ESP + command_message + COMMAND_NO_DATA_WAITING);
-    write_data(ESP_COMMAND_ADDRESS, 27);
+    //write_data(ESP_COMMAND_ADDRESS, 27);
     return address+c;
 }
 
@@ -123,7 +117,7 @@ String Apple2Idiot::read_string_from_ram(int address) {
     String read_string = "";
     while ( (i<MAX_STR_LEN) && (c!=EOS) ) {
         c = read_data(address+i);
-        Serial.print("["); Serial.print(c); Serial.println("]");
+        //Serial.print("["); Serial.print(c); Serial.println("]");
         if (c!=EOS) {
             read_string = read_string + char(c);
         }
@@ -137,7 +131,7 @@ String Apple2Idiot::read_string_from_ram(int address) {
 void Apple2Idiot::read_ram(int size_to_read) {
     for (int i=0; i < size_to_read; i++) {
         unsigned int foo = read_data(i);
-        ram[i] = foo;
+        //ram[i] = foo;
         Serial.print(i);
         Serial.print("    ");
         Serial.println(foo);

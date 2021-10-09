@@ -23,25 +23,21 @@ byte Chess::handleCommand(byte command) {
             move_string = a2i->read_string_from_ram(SHARED_RAM_START_ADDRESS);
             Serial.println("Received move: ["+move_string+"]");
             byte result = makeMove(move_string);
-            a2i->write_data(result, ESP_COMMAND_ADDRESS);
             int address_counter = a2i->write_string_to_shared_ram(last_ai_move, SHARED_RAM_START_ADDRESS);
             getBoard();
             for (int i=0; i<9; i++) {
                 address_counter = a2i->write_string_to_shared_ram(game_board[i], address_counter + 1);
             }
+            a2i->write_data(ESP_COMMAND_ADDRESS, result);
+            a2i->read_ram(11);
             break;
         }
-        //case COMMAND_SET_CITY:
-            //Serial.println("COMMAND_SET_CITY");
-            //a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
-            //city_name = a2i.read_string_from_ram(SHARED_RAM_START_ADDRESS);
-            //Serial.println("Received: ["+city_name+"]");
-            //break;
-        //case COMMAND_FETCH_WEATHER:
-            //Serial.println("COMMAND_FETCH_WEATHER");
-            //a2i.write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
-            //result = fetch_weather();
-            //break;
+        case CHESS_NEW_GAME: {
+            a2i->write_data(ESP_COMMAND_ADDRESS, ACK);      // notify Apple IIe we are processing command byte
+            Serial.println("CHESS_NEW_GAME");
+            strcpy(game_string, "");
+            break;
+        }
         default: {
             return COMMAND_NOT_FOUND;
         }
@@ -265,8 +261,10 @@ void Chess::getBoard() {
                 removeSubstr(board_line, "[37m");
                 removeSubstr(board_line, "[0m");
                 removeSubstr(board_line, "\n");
-                Serial.print("(");Serial.print(row_count);Serial.print(")");
-                Serial.print(board_line); Serial.println("|");
+                removeSubstr(board_line, "\e"); // remove escape (ASCII 27)
+                removeSubstr(board_line, "\e"); // remove escape (ASCII 27)
+                //Serial.print("(");Serial.print(row_count);Serial.print(")");
+                //Serial.print(board_line); Serial.println("|");
                 strcpy(game_board[row_count], board_line); // valid
                 pch = strtok(NULL, "\n");
                 row_count++;

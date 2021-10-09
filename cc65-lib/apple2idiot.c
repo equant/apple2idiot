@@ -5,18 +5,46 @@
 
 #include "globals.h"
 #include "apple2idiot.h"
+#include "../../../../arduino-lib/Apple2Idiot/A2I_commands.h"
 
 #define MAX_STR_LEN 250
 
 
-unsigned char read_byte(unsigned int address) {
-    gotoxy(0,2);
+unsigned int read_byte(unsigned int address) {
+    unsigned int b = 0;
+    b = PEEK(address);    
     //printf("read_data(%u)", address);
+    return b;
 }
 
 unsigned char write_byte(unsigned int address, unsigned char byte_to_write) {
     //printf("%u <- %d, [%c]\n", address, byte_to_write, byte_to_write);
     POKE(address, byte_to_write);
+}
+
+unsigned char write_byte_wait_for_ack(unsigned int address, unsigned char byte_to_write) {
+    unsigned char received_esp_response = 0;
+    int timeout_count = 0;
+    unsigned char timeout_happened = 0;
+    int delay_count = 0;
+    unsigned char read_char;
+    write_byte(address, byte_to_write);
+    while ((received_esp_response==0) || (timeout_happened==0)) {
+        timeout_count++;
+        if (timeout_count > ESP_TIMEOUT) {
+            timeout_happened = 1;
+            return 0;
+        }
+        //read_char = read_byte(ESP_COMMAND_ADDRESS);
+        read_char = read_byte(APPLE_COMMAND_ADDRESS);
+        if (read_char == ACK) {
+            received_esp_response = 1;
+            return 1;
+        }
+        for (delay_count=0; delay_count < 1111; ++delay_count) {
+            // do nothing
+        }
+    }
 }
 
 unsigned char* write_string_to_ram(unsigned int address, char* string_to_send) {

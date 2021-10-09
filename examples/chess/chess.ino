@@ -33,8 +33,8 @@ byte app_ids[N_APPS] = {APP_CHESS};
 
 byte current_app_id;
 
-//const long mainLoopInterval = 100; // millis
-const long mainLoopInterval = 10000; // millis
+const long mainLoopInterval = 100; // millis
+//const long mainLoopInterval = 10000; // millis
 unsigned long lastMainLoopTime = 0;
 byte lastAppleCommand = 0;
 
@@ -101,17 +101,17 @@ void loop() {
                         Serial.println("We are talking to a new app");
                         a2i.write_data(ESP_COMMAND_ADDRESS, ACK);
                         current_app_id = command_byte;
-                        a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
-                        a2i.write_data(ESP_COMMAND_ADDRESS, EOT);
-                        lastMainLoopTime = millis();
-                        return;
                     }
+                    a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
+                    a2i.write_data(ESP_COMMAND_ADDRESS, EOT);
+                    lastMainLoopTime = millis();
+                    return;
                 }
             }
            
             /* If we got here, we need to pass the command to app's class to be handled */ 
 
-            if (command_byte == chess_app.appId) {
+            if (current_app_id == chess_app.appId) {
                 Serial.println("Received a command for Chess()");
                 chess_app.handleCommand(command_byte);
                 a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);

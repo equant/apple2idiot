@@ -71,8 +71,7 @@ void main(void) {
                 printf("Your Move:");
                 fgets(player_move, sizeof player_move, stdin);
                 player_move[strcspn(player_move, "\n")] = 0;
-                //if (strcmp(player_move, "quit") == 0) {
-                if (player_move[0] == 'q') {
+                if (strcmp(player_move, "quit") == 0) {
                     state = STATE_NONE;
                 } else {
                     write_string_to_ram(RAM_DATA_START_ADDRESS, player_move);
@@ -148,10 +147,38 @@ void awaitMoveResponse(void) {
     //while (received_esp_response==0 || timeout_count < ESP_TIMEOUT) {
     while (received_esp_response==0) {
         timeout_count++;
-        read_char = read_byte(APPLE_COMMAND_ADDRESS);
-        if (read_char == ACK) {
-            received_esp_response = 1;
-        }
+        read_char = read_byte(ESP_COMMAND_ADDRESS);
+            switch((int)read_char) {
+                case STATUS_IN_PROGRESS:
+                    received_esp_response = 1;
+                    break;
+                case STATUS_BLACK_WON:
+                    //received_esp_response = 1;
+                    break;
+                case STATUS_WHITE_WON:
+                    //received_esp_response = 1;
+                    break;
+                case STATUS_STALEMATE:
+                    //received_esp_response = 1;
+                    break;
+                case STATUS_FIFTY_RULE_MOVE:
+                    //received_esp_response = 1;
+                    break;
+                case STATUS_UNKNOWN:
+                    //received_esp_response = 1;
+                    break;
+                case STATUS_UNHANDLED:
+                    //received_esp_response = 1;
+                    break;
+                case STATUS_ERROR:
+                    //received_esp_response = 1;
+                    break;
+                case CHESS_INVALID_MOVE:
+                    received_esp_response = 1;
+                    break;
+                default:
+                    break;
+            }
         // delay
         for (delay_count=0; delay_count < 1111; ++delay_count) {
             spinner();
@@ -162,18 +189,14 @@ void awaitMoveResponse(void) {
         return;
     }
 
-    read_char = read_byte(ESP_COMMAND_ADDRESS);
-    //gotoxy(0,0);
-    //printf("FROMESP: %s\n", read_char);
-
     //getBoard();
-    switch((int)read_char) {
+    switch(read_char) {
         case STATUS_IN_PROGRESS:
             //popup("STATUS_IN_PROGRESS");
             read_string_from_ram(RAM_DATA_START_ADDRESS, ai_move, sizeof ai_move-1);
-            //popup(&ai_move);
-            gotoxy(0,SIZE_Y-2);
-            printf("AI Move: %s\n", ai_move);
+            popup(ai_move);
+            //gotoxy(0,0);
+            //printf("AI Move: %s\n", ai_move);
             address_offset = 5;
             for (i=0; i<8; i++) {
                 read_string_from_ram(RAM_DATA_START_ADDRESS + address_offset, game_board[i], sizeof game_board[i]-1);

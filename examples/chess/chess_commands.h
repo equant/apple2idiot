@@ -2,6 +2,7 @@
 #define A2I_CHESS_COMMANDS_H
 
 /* Apple II <-> ESP Commands */
+#define CHESS_NEW_GAME        10
 #define CHESS_GET_AI_MOVE     20
 #define CHESS_GET_GAME_STATUS 22
 #define CHESS_GET_BOARD       23
