@@ -11,6 +11,10 @@
 #include "../../chess_commands.h"
 #include "../../../../arduino-lib/Apple2Idiot/A2I_commands.h"
 
+// Stuff from StewBC/cc65-Chess/
+//#include "StewBC/plat.h"
+//#include "StewBC/apple2/platA2.c"
+
 unsigned char i = 0;
 char pause_char;
 char player_move[5];
