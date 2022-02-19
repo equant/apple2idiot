@@ -1,0 +1,59 @@
+{
+        // See https://go.microsoft.com/fwlink/?LinkId=733558
+        // for the documentation about the tasks.json format
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Build and Run",
+                "type": "shell",
+                "command": "make dsk test",
+                "args": [],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "clear": true
+                },
+                "problemMatcher": [
+                    "$ca65",
+                    "$ld65",
+                    "$ld65-config",
+                    "$ld65-unresolved"
+                ]
+            },
+            {
+                "label": "Clean",
+                "type": "shell",
+                "command": "make clean",
+                "args": [],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "clear": true
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "Build",
+                "type": "shell",
+                "command": "make",
+                "args": [],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "clear": true
+                },
+                "problemMatcher": [
+                    "$ca65",
+                    "$ld65",
+                    "$ld65-config",
+                    "$ld65-unresolved"
+                ]
+            }
+        ]
+}
