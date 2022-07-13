@@ -1,0 +1,4 @@
+5 REM define COMMANDWIFISCAN 21
+10 WC = 21
+100 CA = 49665  : REM Card slot 2?
+150  POKE CA,WC
