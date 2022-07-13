@@ -1,6 +1,6 @@
 
-#. Load `00_wifi_scan-basic.dsk` into your Apple II
-#. Load `00_wifi_scan-basic.ino` into your apple2idiot card in slot 2.
+1. Load `00_wifi_scan-basic.dsk` into your Apple II
+1. Load `00_wifi_scan-basic.ino` into your apple2idiot card in slot 2.
 
 At BASIC prompt on Apple II do...
 
