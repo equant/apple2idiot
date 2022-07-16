@@ -17,8 +17,12 @@ Apple2Idiot a2i = Apple2Idiot();
 #define COMMAND_SET_CITY 201
 #define COMMAND_FETCH_WEATHER 205
 
-const char* wifi_ssid = "GSO";
-const char* wifi_password = "xerxes27";
+#include "credentials.h"
+
+//const char* wifi_ssid = "HotelMcCoy-Guest";
+//const char* wifi_password = "travelforall";
+char wifi_ssid[] = WIFI_SSID;         // your network SSID (name)
+char wifi_password[] = WIFI_PASSWORD; // your network password
 
 /*******************/
 /* Weather Service */
@@ -44,6 +48,10 @@ byte lastAppleCommand = 0;
 ################################################*/
 
 void setup() {
+    Serial.println("Starting 15_fixed_essid_weather-cc65.ino after a quick delay so that we have time to connect a serial monitor after restart and see what's going on");
+    delay(3000);
+    Serial.println("Starting 15_fixed_essid_weather-cc65.ino");
+
     Serial.begin(115200);
 
     a2i.init();
@@ -76,7 +84,7 @@ byte fetch_weather() {
     byte result = 0;
     HTTPClient http;
     //const String request_url = weather_url + "q=Tucson,us&APPID=" + weather_service_api_key;
-    const String request_url = weather_url + "q=" + city_name + "," + country_code + "&APPID=" + weather_service_api_key;
+    const String request_url = weather_url + "q=" + city_name + "," + country_code + "&APPID=" + WEATHER_ACCESS_TOKEN;
     Serial.println(request_url);
     http.begin(request_url);
     int httpCode = http.GET();  //Make the request
