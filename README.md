@@ -29,7 +29,7 @@ it's programmed to resppond.
 
 ### The Card
 
-This is actively being developed (as of September 2021).  The rev 0.2 boards have arrived, and they work as designed.  The gerber files are here in the repo.
+This is actively being developed (as of July 2022).  The rev 0.2 boards have arrived, and they work as designed.  The gerber files are here in the repo.
 
 ### The Apple II Software
 
