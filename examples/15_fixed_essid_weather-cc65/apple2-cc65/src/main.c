@@ -75,6 +75,7 @@ void main(void)
         case ASCII_4:
             clrscr();
             drawMenuBar();
+            address_offset = 0;
             read_string_from_ram(RAM_DATA_START_ADDRESS + address_offset, temperature, sizeof temperature-1);
             address_offset += strlen(temperature) + 1;
             read_string_from_ram(RAM_DATA_START_ADDRESS + address_offset, humidity, sizeof humidity-1);
