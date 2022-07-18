@@ -1,4 +1,4 @@
-diskname='15_fixed_essid_weather-cc65.dsk'
+diskname='15_fixed_essid_weather-basic.dsk'
 
 echo "-------------------------"
 echo "Files on disk image (before):"
