@@ -37,9 +37,10 @@
 #                  PROGRAM IDS                   #
 ################################################*/
 
-#define APP_WEATHER 200
-#define APP_CHESS   201
-#define APP_ISS     202
+#define APP_WEATHER  200
+#define APP_CHESS    201
+#define APP_ISS      202
+#define APP_DND5EAPI 202
 
 
 /*################################################

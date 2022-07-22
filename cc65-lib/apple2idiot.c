@@ -5,7 +5,7 @@
 
 #include "globals.h"
 #include "apple2idiot.h"
-#include "../../../../arduino-lib/Apple2Idiot/A2I_commands.h"
+#include "A2I_commands.h"
 
 #define MAX_STR_LEN 250
 

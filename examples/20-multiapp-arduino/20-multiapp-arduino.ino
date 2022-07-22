@@ -7,17 +7,15 @@ github.com/equant
 // Load Wi-Fi library
 #include <WiFi.h>
 #include <Apple2Idiot.h>
-//#include <ArduinoJson.h>
-//#include <HTTPClient.h>
 #include "credentials.h"
 #include "a2i_weather.h"
 #include "a2i_iss.h"
+#include "a2i_chess.h"
 
 #define AUTO_CONNECT_TO_WIFI 1
 #define AUTO_CONNECT_TIMEOUT 5
 
 Apple2Idiot a2i = Apple2Idiot();
-//HTTPClient http;
 
 /*################################################
 #      Applications we're going to support       #
@@ -33,13 +31,12 @@ Apple2Idiot a2i = Apple2Idiot();
 # app.
 ################################################*/
 
-//Chess chess_app = Chess();
+Chess chess_app = Chess();
 Weather weather_app = Weather();
 Iss iss_app = Iss();
 
-#define N_APPS 2
-//byte app_ids[N_APPS] = {APP_WEATHER, APP_ISS};
-byte app_ids[N_APPS] = {APP_ISS, APP_WEATHER};
+#define N_APPS 3
+byte app_ids[N_APPS] = {APP_ISS, APP_WEATHER, APP_CHESS};
 
 /*******************/
 /*   Variables     */
@@ -152,6 +149,13 @@ void loop() {
                 Serial.println("Received a command for ISS()");
                 iss_app.handleCommand(command_byte);
                 Serial.println("...command for ISS() handled");
+                a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
+                //a2i.write_data(ESP_COMMAND_ADDRESS, EOT);   // notify Apple IIe we are done processing command byte
+            }
+            else if (current_app_id == chess_app.appId) {
+                Serial.println("Received a command for Chess()");
+                chess_app.handleCommand(command_byte);
+                Serial.println("...command for Chess() handled");
                 a2i.write_data(APPLE_COMMAND_ADDRESS, ACK);
                 //a2i.write_data(ESP_COMMAND_ADDRESS, EOT);   // notify Apple IIe we are done processing command byte
             }
