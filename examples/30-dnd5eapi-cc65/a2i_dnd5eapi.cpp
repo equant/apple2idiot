@@ -38,7 +38,7 @@ byte Dnd5eapi::searchMonster() {
     HTTPClient http;
 
     char api_request[MAX_STR_LEN];
-    sprintf(api_request, "%s/?name=%s", api_entry_point, monster_search_string);
+    sprintf(api_request, "%s/monsters?name=%s", api_entry_point, monster_search_string);
     Serial.print("    "); Serial.println(api_request);
     http.begin(api_request);
 
@@ -68,12 +68,24 @@ byte Dnd5eapi::searchMonster() {
             Serial.println("----------------------");
             serializeJsonPretty(doc["results"], Serial);
             Serial.println("----------------------");
-            String result_count  = doc["count"];
+            int result_count  = doc["count"];
             String results = doc["results"];
-            //int address_counter = a2i.write_string_to_shared_ram(latitude, SHARED_RAM_START_ADDRESS);
-            //address_counter = a2i.write_string_to_shared_ram(longitude, address_counter + 1);
-            //address_counter = a2i.write_string_to_shared_ram(timestamp, address_counter + 1);
-            //address_counter = a2i.write_string_to_shared_ram(message, address_counter + 1);
+
+            /// Write to ram
+            int address_counter = SHARED_RAM_START_ADDRESS + 1;
+            if (result_count == 0) {
+                Serial.println("no monsters found");
+                a2i.write_data(0, SHARED_RAM_START_ADDRESS);
+            } else {
+                a2i.write_data(result_count, address_counter);
+                for (int i = 0; i < result_count; ++i) {
+                    Serial.print(i + 1);
+                    Serial.print(": ");
+                    Serial.println(doc["results"][i]["index"].as<String>());
+                    //delay(10);
+                    address_counter = a2i.write_string_to_shared_ram(doc["results"][i]["index"].as<String>(), address_counter + 1);
+                }
+            }
         }
         result = ACK;
     }

@@ -21,7 +21,7 @@ class Dnd5eapi {
 
         void init(Apple2Idiot *a2ip, HTTPClient *httpp);
         byte handleCommand(byte command);
-        byte searchMonster(byte command);
+        byte searchMonster();
         byte fetch_dnd5eapi();
 
     private:
