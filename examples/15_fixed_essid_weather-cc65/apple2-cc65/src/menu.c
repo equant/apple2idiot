@@ -7,8 +7,8 @@
 #include "menu.h"
 
 #define MENU_LENGTH 5
-#define MENU_WORD_LENGTH 8
-unsigned char menuEntries[MENU_LENGTH][MENU_WORD_LENGTH] = {"Country", "City", "Fetch", "Display", "Quit"};
+#define MENU_WORD_LENGTH 9
+unsigned char menuEntries[MENU_LENGTH][MENU_WORD_LENGTH] = {"Country ", "City ", "Fetch ", "Display ", "Quit"};
 
 void drawMenuBar() {
 	static unsigned char i;

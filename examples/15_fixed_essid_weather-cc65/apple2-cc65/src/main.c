@@ -23,8 +23,11 @@ unsigned int address_offset = 0;
 
 void main(void)
 {
+
     unsigned char key;
     clrscr();
+
+    write_byte(APPLE_COMMAND_ADDRESS, APP_ID);
 
     while (key != ASCII_5) {    // Last menu item should be Quit
         drawMenuBar();

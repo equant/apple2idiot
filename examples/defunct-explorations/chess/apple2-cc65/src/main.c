@@ -9,7 +9,7 @@
 #include "menu.h"
 #include "apple2idiot.h"
 #include "../../chess_commands.h"
-#include "../../../../arduino-lib/Apple2Idiot/A2I_commands.h"
+#include "A2I_commands.h"
 
 // Stuff from StewBC/cc65-Chess/
 //#include "StewBC/plat.h"
@@ -66,6 +66,7 @@ void popup(unsigned char* message) {
 
 void main(void) {
     unsigned char key;
+    write_byte(APPLE_COMMAND_ADDRESS, 201);
     while (state != STATE_QUIT) {
         switch(state) {
             case STATE_LOCAL_GAME:
